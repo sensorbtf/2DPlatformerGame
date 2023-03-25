@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Projectile_Config_SO", menuName = "Configs")]
+//[CreateAssetMenu(fileName = "Projectile_Config_SO", menuName = "Configs/Enemy")]
 public class ProjectileConfig : ScriptableObject
 {
     [Header("Projectile data")]
