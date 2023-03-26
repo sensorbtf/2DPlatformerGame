@@ -3,7 +3,7 @@ guid: 0bf588c8774b37e4ba97190a378b2971
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -198,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      herochar_idle_anim_strip_4_1: 1560219778
-      herochar_idle_anim_strip_4_3: 330681142
-      herochar_idle_anim_strip_4_2: 1688125423
       herochar_idle_anim_strip_4_0: 1669783898
+      herochar_idle_anim_strip_4_1: 1560219778
+      herochar_idle_anim_strip_4_2: 1688125423
+      herochar_idle_anim_strip_4_3: 330681142
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

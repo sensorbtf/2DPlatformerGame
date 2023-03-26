@@ -3,7 +3,7 @@ guid: 0170226575786524ca2465d23f714026
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -198,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lost_hearts_anim_strip_5_3: -1428391044
+      lost_hearts_anim_strip_5_0: -1379679975
       lost_hearts_anim_strip_5_1: 2023844025
       lost_hearts_anim_strip_5_2: -371400274
-      lost_hearts_anim_strip_5_0: -1379679975
+      lost_hearts_anim_strip_5_3: -1428391044
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

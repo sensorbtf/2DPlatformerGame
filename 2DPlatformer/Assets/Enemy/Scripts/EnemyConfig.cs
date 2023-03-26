@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Enemy_Config_SO", menuName = "Configs")]
+//[CreateAssetMenu(fileName = "Enemy_Config_SO", menuName = "Configs/")]
 public class EnemyConfig : ScriptableObject
 {
     [Header("Enemy parameters")]

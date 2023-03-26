@@ -3,7 +3,7 @@ guid: c9a105a6c1b42b84ea0ccc21c79b0e60
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -282,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mushroom_walk_anim_strip_8_2: 1578569381
-      mushroom_walk_anim_strip_8_4: -908063346
       mushroom_walk_anim_strip_8_0: 1451663411
-      mushroom_walk_anim_strip_8_5: -414616254
-      mushroom_walk_anim_strip_8_3: 1587980876
       mushroom_walk_anim_strip_8_1: 1024354158
-      mushroom_walk_anim_strip_8_7: -1573779761
+      mushroom_walk_anim_strip_8_2: 1578569381
+      mushroom_walk_anim_strip_8_3: 1587980876
+      mushroom_walk_anim_strip_8_4: -908063346
+      mushroom_walk_anim_strip_8_5: -414616254
       mushroom_walk_anim_strip_8_6: -1010593535
+      mushroom_walk_anim_strip_8_7: -1573779761
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

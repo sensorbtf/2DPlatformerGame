@@ -3,7 +3,7 @@ guid: 4bd847fc00e533d4dbb920ff6fe8137a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -282,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bomb_on_ground_anim_strip_8_2: -733824702
-      bomb_on_ground_anim_strip_8_6: -1520846473
-      bomb_on_ground_anim_strip_8_4: -594634882
-      bomb_on_ground_anim_strip_8_1: -1095197016
-      bomb_on_ground_anim_strip_8_3: 816400116
-      bomb_on_ground_anim_strip_8_7: -1553072660
-      bomb_on_ground_anim_strip_8_5: -382753046
       bomb_on_ground_anim_strip_8_0: 442612173
+      bomb_on_ground_anim_strip_8_1: -1095197016
+      bomb_on_ground_anim_strip_8_2: -733824702
+      bomb_on_ground_anim_strip_8_3: 816400116
+      bomb_on_ground_anim_strip_8_4: -594634882
+      bomb_on_ground_anim_strip_8_5: -382753046
+      bomb_on_ground_anim_strip_8_6: -1520846473
+      bomb_on_ground_anim_strip_8_7: -1553072660
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -3,7 +3,7 @@ guid: d02f8e253c02a6b469ce90e4a061e959
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -240,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      mushroom_death_anim_strip_6_0: 2108406848
       mushroom_death_anim_strip_6_1: -944697977
       mushroom_death_anim_strip_6_2: -1725992679
-      mushroom_death_anim_strip_6_0: 2108406848
-      mushroom_death_anim_strip_6_5: 1543466836
-      mushroom_death_anim_strip_6_4: 1836981223
       mushroom_death_anim_strip_6_3: 181707353
+      mushroom_death_anim_strip_6_4: 1836981223
+      mushroom_death_anim_strip_6_5: 1543466836
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
