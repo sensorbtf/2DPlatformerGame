@@ -13,6 +13,7 @@ public class PlayerMonoConfig : MonoBehaviour
     [SerializeField] private LayerMask whatAreWallsAndCeiling;
     [SerializeField] private LayerMask whatAreEnemies;
     [SerializeField] private Collider2D platformCollider;
+    [SerializeField] private Animator animator;
 
     [Header("Player Components")]
     [SerializeField] private Rigidbody2D playerRigidBody;
@@ -26,6 +27,7 @@ public class PlayerMonoConfig : MonoBehaviour
     public LayerMask WhatIsGround => whatIsGround;
     public LayerMask WhatAreWallsAndCeiling => whatAreWallsAndCeiling;
     public LayerMask WhatAreEnemies => whatAreEnemies;
+    public Animator Animator => animator;
     public Collider2D PlatformCollider => platformCollider;
     
     public Rigidbody2D PlayerRigidBody => playerRigidBody;

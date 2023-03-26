@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         
         input = Input.GetAxisRaw("Horizontal");
         PlayerPositionChecker();
+        HeroStateAnimations();
         PlayerInput();
     }
 
@@ -86,14 +87,43 @@ public class PlayerController : MonoBehaviour
         
         if (Time.time > PlayerStats.TimeBetweenAttacks)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall)
             {
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
-                Debug.Log("Attack!");
+                PlayerMonoConfig.Animator.SetTrigger("Attacking");
             }
         }
     }
     
+    private void HeroStateAnimations()
+    {
+        if (input != 0 && isGrounded )
+        {
+            PlayerMonoConfig.Animator.SetBool("isRunning", true);
+        }
+        else
+            PlayerMonoConfig.Animator.SetBool("isRunning", false);
+        
+        if (isGrounded)
+        {
+            PlayerMonoConfig.Animator.SetBool("isGrounded", true);
+            PlayerMonoConfig.Animator.SetBool("isJumping", false);
+            PlayerMonoConfig.Animator.SetBool("isFalling", false);
+        }
+        else
+        {
+            PlayerMonoConfig.Animator.SetBool("isGrounded", false);
+            PlayerMonoConfig.Animator.SetBool("isJumping", true);
+            if (PlayerMonoConfig.PlayerRigidBody.velocity.y < -0.1)
+            {
+                PlayerMonoConfig.Animator.SetBool("isJumping", false);
+                PlayerMonoConfig.Animator.SetBool("isFalling", true);
+            }
+            else
+                PlayerMonoConfig.Animator.SetBool("isFalling", false);
+        }
+    }
+
     private void Dash()
     {
         StartCoroutine(PlayerMonoConfig.WallTouchingValidator.position.x >
@@ -107,6 +137,8 @@ public class PlayerController : MonoBehaviour
         isDashing = true;
         canDash = false;
         doDash = false;
+        PlayerMonoConfig.Animator.SetTrigger("Dashing");
+        
         var gravityScale = PlayerMonoConfig.PlayerRigidBody.gravityScale;
 
         PlayerMonoConfig.PlayerRigidBody.velocity = new Vector2(PlayerMonoConfig.PlayerRigidBody.velocity.x, 0f);
@@ -188,12 +220,12 @@ public class PlayerController : MonoBehaviour
             FlipHeroSprite();
     }
     
-    // private void Attack() // will be used in animation
-    // {
-    //     Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(PlayerMonoConfig.AttackValidator.position, 
-    //         PlayerStats.AttackRange, PlayerMonoConfig.WhatAreEnemies);
-    //
-    //     foreach (Collider2D enemies in enemiesToDamage)
-    //         enemies.GetComponent<Enemy>().TakeDamage(PlayerStats.Damage);
-    // }
+    private void Attack() // will be used in animation
+    {
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(PlayerMonoConfig.AttackValidator.position, 
+            PlayerStats.AttackRange, PlayerMonoConfig.WhatAreEnemies);
+    
+        // foreach (Collider2D enemies in enemiesToDamage)
+        //     enemies.GetComponent<Enemy>().TakeDamage(PlayerStats.Damage);
+    }
 }
