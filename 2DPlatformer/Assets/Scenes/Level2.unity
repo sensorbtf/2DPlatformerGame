@@ -1746,38 +1746,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389136547592092303, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 395.882
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
---- !u!1 &1552172638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6389136547592092302, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
-  m_PrefabInstance: {fileID: 1552172637}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1552172639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552172638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2df3644268807f4eb9f2e0ded03d06d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullHeart: {fileID: 21300000, guid: ba5696f589783134eb13edae77070958, type: 3}
-  brokenHeart: {fileID: 21300000, guid: 8e94700a3eb058a4ca2a33b08fb1ddd3, type: 3}
-  heartPrefab: {fileID: 6555299145930992167, guid: 5dae6d1db778ee340af1ae3310c5ec32, type: 3}
-  heartsRect: {fileID: 1552172640}
---- !u!224 &1552172640 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6389136547592092303, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
-  m_PrefabInstance: {fileID: 1552172637}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607403935
 GameObject:
   m_ObjectHideFlags: 0

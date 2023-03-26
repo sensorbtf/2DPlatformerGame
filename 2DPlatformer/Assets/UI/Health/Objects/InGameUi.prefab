@@ -111,6 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6389136547592092303}
   - component: {fileID: 6389136547592092296}
+  - component: {fileID: 1552172639}
   m_Layer: 5
   m_Name: Hearts
   m_TagString: Untagged
@@ -136,7 +137,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1.6199951, y: 0}
-  m_SizeDelta: {x: 236.4686, y: 77.1776}
+  m_SizeDelta: {x: 395.882, y: 77.1776}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &6389136547592092296
 MonoBehaviour:
@@ -164,3 +165,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1552172639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6389136547592092302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df3644268807f4eb9f2e0ded03d06d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullHeart: {fileID: 21300000, guid: ba5696f589783134eb13edae77070958, type: 3}
+  brokenHeart: {fileID: 21300000, guid: 8e94700a3eb058a4ca2a33b08fb1ddd3, type: 3}
+  heartPrefab: {fileID: 6555299145930992167, guid: 5dae6d1db778ee340af1ae3310c5ec32, type: 3}
+  heartsRect: {fileID: 6389136547592092303}
