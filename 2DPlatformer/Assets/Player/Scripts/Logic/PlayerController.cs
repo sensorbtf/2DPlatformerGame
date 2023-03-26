@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; } 
+    
     [SerializeField] private PlayerMonoConfig PlayerMonoConfig;
     [SerializeField] private PlayerStatsConfig PlayerStats;
 
@@ -23,6 +26,32 @@ public class PlayerController : MonoBehaviour
 
     private float input;
     private float nextAttackCooldown;
+    private int health;
+
+    public int Health
+    {
+        get => health;
+        set
+        {
+            health =- value;
+            if (health <= 0)
+            {
+                //StartCoroutine(Die());
+            }
+        }
+    }
+
+    public event Action<int> OnHealthLose;
+
+    private void Awake()
+    {
+        health = PlayerStats.Health;
+
+        if (Instance != null && Instance != this)
+            Destroy(this);
+        else
+            Instance = this;
+    }
 
     void Update()
     {
@@ -89,12 +118,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall)
             {
+                Health = Health - 2;
+                OnHealthLose?.Invoke(2);
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
                 PlayerMonoConfig.Animator.SetTrigger("Attacking");
             }
         }
     }
-    
+
     private void HeroStateAnimations()
     {
         if (input != 0 && isGrounded )

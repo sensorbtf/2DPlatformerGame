@@ -3,7 +3,7 @@ guid: c0100662aa8f5b5488bbb28f00440bab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -282,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      herochar_death_anim_strip_8_2: -353280931
-      herochar_death_anim_strip_8_7: 1063735397
-      herochar_death_anim_strip_8_4: -435318936
-      herochar_death_anim_strip_8_6: 2133620028
-      herochar_death_anim_strip_8_5: -1595502027
       herochar_death_anim_strip_8_0: -1235478180
       herochar_death_anim_strip_8_1: -1490985734
+      herochar_death_anim_strip_8_2: -353280931
       herochar_death_anim_strip_8_3: -1481660944
+      herochar_death_anim_strip_8_4: -435318936
+      herochar_death_anim_strip_8_5: -1595502027
+      herochar_death_anim_strip_8_6: 2133620028
+      herochar_death_anim_strip_8_7: 1063735397
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

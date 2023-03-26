@@ -3,7 +3,7 @@ guid: 72ee004ff332bcc449f35d04b149b5c1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -240,11 +241,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      coin_anim_strip_6_2: -330668556
+      coin_anim_strip_6_0: -1452711359
       coin_anim_strip_6_1: 1347748436
+      coin_anim_strip_6_2: -330668556
       coin_anim_strip_6_3: -704027598
       coin_anim_strip_6_4: -1632005861
-      coin_anim_strip_6_0: -1452711359
       coin_anim_strip_6_5: -42323544
   spritePackingTag: 
   pSDRemoveMatte: 0

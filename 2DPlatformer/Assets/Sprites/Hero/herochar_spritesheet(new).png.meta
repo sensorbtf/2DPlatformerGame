@@ -3,7 +3,7 @@ guid: 0e56135828d485e4aa80b825f922a5a9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1417,71 +1418,71 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       herochar_spritesheet(new)_0: 313503753
-      herochar_spritesheet(new)_36: -671140254
-      herochar_spritesheet(new)_64: -1169199381
-      herochar_spritesheet(new)_15: 923559135
-      herochar_spritesheet(new)_9: 979775073
-      herochar_spritesheet(new)_49: -709374218
-      herochar_spritesheet(new)_30: 2012593703
-      herochar_spritesheet(new)_16: -123529976
-      herochar_spritesheet(new)_35: 281121246
-      herochar_spritesheet(new)_46: -307652907
-      herochar_spritesheet(new)_31: 1369464650
-      herochar_spritesheet(new)_23: -507018883
-      herochar_spritesheet(new)_3: -2056793586
-      herochar_spritesheet(new)_57: -39951494
-      herochar_spritesheet(new)_6: 1239789516
-      herochar_spritesheet(new)_10: -1282780380
-      herochar_spritesheet(new)_2: 308965029
-      herochar_spritesheet(new)_61: 1633964753
-      herochar_spritesheet(new)_41: -646285800
-      herochar_spritesheet(new)_63: 707022102
-      herochar_spritesheet(new)_25: 300197808
-      herochar_spritesheet(new)_19: -83673179
-      herochar_spritesheet(new)_47: 1772404751
-      herochar_spritesheet(new)_37: -1969819390
-      herochar_spritesheet(new)_45: -1316637957
-      herochar_spritesheet(new)_29: -488058856
-      herochar_spritesheet(new)_11: -898946331
-      herochar_spritesheet(new)_13: 662823032
-      herochar_spritesheet(new)_18: 442335403
-      herochar_spritesheet(new)_53: 1188550552
-      herochar_spritesheet(new)_55: 1737625972
-      herochar_spritesheet(new)_65: 615352946
-      herochar_spritesheet(new)_42: -500321031
-      herochar_spritesheet(new)_14: 428753935
-      herochar_spritesheet(new)_62: -989767925
-      herochar_spritesheet(new)_39: -1896610788
-      herochar_spritesheet(new)_32: -1917361189
-      herochar_spritesheet(new)_12: 679923584
-      herochar_spritesheet(new)_8: 484826152
-      herochar_spritesheet(new)_17: -1581650507
-      herochar_spritesheet(new)_50: 1515232106
-      herochar_spritesheet(new)_33: -1276543270
-      herochar_spritesheet(new)_26: 1089734678
-      herochar_spritesheet(new)_5: 1893695302
-      herochar_spritesheet(new)_20: -1572305149
-      herochar_spritesheet(new)_38: -1377902804
-      herochar_spritesheet(new)_58: -979462760
-      herochar_spritesheet(new)_7: -345122231
-      herochar_spritesheet(new)_22: -1175903507
-      herochar_spritesheet(new)_48: 586084672
-      herochar_spritesheet(new)_24: -603324313
-      herochar_spritesheet(new)_21: -1023178225
-      herochar_spritesheet(new)_43: -1676877363
-      herochar_spritesheet(new)_52: 1707717982
-      herochar_spritesheet(new)_54: 1015169274
       herochar_spritesheet(new)_1: 2011266735
+      herochar_spritesheet(new)_10: -1282780380
+      herochar_spritesheet(new)_11: -898946331
+      herochar_spritesheet(new)_12: 679923584
+      herochar_spritesheet(new)_13: 662823032
+      herochar_spritesheet(new)_14: 428753935
+      herochar_spritesheet(new)_15: 923559135
+      herochar_spritesheet(new)_16: -123529976
+      herochar_spritesheet(new)_17: -1581650507
+      herochar_spritesheet(new)_18: 442335403
+      herochar_spritesheet(new)_19: -83673179
+      herochar_spritesheet(new)_2: 308965029
+      herochar_spritesheet(new)_20: -1572305149
+      herochar_spritesheet(new)_21: -1023178225
+      herochar_spritesheet(new)_22: -1175903507
+      herochar_spritesheet(new)_23: -507018883
+      herochar_spritesheet(new)_24: -603324313
+      herochar_spritesheet(new)_25: 300197808
+      herochar_spritesheet(new)_26: 1089734678
       herochar_spritesheet(new)_27: 1185141441
       herochar_spritesheet(new)_28: -1820485356
-      herochar_spritesheet(new)_56: 1335298906
-      herochar_spritesheet(new)_4: -174885125
-      herochar_spritesheet(new)_44: -324725353
-      herochar_spritesheet(new)_59: 911844143
-      herochar_spritesheet(new)_51: 1564121696
+      herochar_spritesheet(new)_29: -488058856
+      herochar_spritesheet(new)_3: -2056793586
+      herochar_spritesheet(new)_30: 2012593703
+      herochar_spritesheet(new)_31: 1369464650
+      herochar_spritesheet(new)_32: -1917361189
+      herochar_spritesheet(new)_33: -1276543270
       herochar_spritesheet(new)_34: 1830574797
-      herochar_spritesheet(new)_60: 1455680755
+      herochar_spritesheet(new)_35: 281121246
+      herochar_spritesheet(new)_36: -671140254
+      herochar_spritesheet(new)_37: -1969819390
+      herochar_spritesheet(new)_38: -1377902804
+      herochar_spritesheet(new)_39: -1896610788
+      herochar_spritesheet(new)_4: -174885125
       herochar_spritesheet(new)_40: -1508159687
+      herochar_spritesheet(new)_41: -646285800
+      herochar_spritesheet(new)_42: -500321031
+      herochar_spritesheet(new)_43: -1676877363
+      herochar_spritesheet(new)_44: -324725353
+      herochar_spritesheet(new)_45: -1316637957
+      herochar_spritesheet(new)_46: -307652907
+      herochar_spritesheet(new)_47: 1772404751
+      herochar_spritesheet(new)_48: 586084672
+      herochar_spritesheet(new)_49: -709374218
+      herochar_spritesheet(new)_5: 1893695302
+      herochar_spritesheet(new)_50: 1515232106
+      herochar_spritesheet(new)_51: 1564121696
+      herochar_spritesheet(new)_52: 1707717982
+      herochar_spritesheet(new)_53: 1188550552
+      herochar_spritesheet(new)_54: 1015169274
+      herochar_spritesheet(new)_55: 1737625972
+      herochar_spritesheet(new)_56: 1335298906
+      herochar_spritesheet(new)_57: -39951494
+      herochar_spritesheet(new)_58: -979462760
+      herochar_spritesheet(new)_59: 911844143
+      herochar_spritesheet(new)_6: 1239789516
+      herochar_spritesheet(new)_60: 1455680755
+      herochar_spritesheet(new)_61: 1633964753
+      herochar_spritesheet(new)_62: -989767925
+      herochar_spritesheet(new)_63: 707022102
+      herochar_spritesheet(new)_64: -1169199381
+      herochar_spritesheet(new)_65: 615352946
+      herochar_spritesheet(new)_7: -345122231
+      herochar_spritesheet(new)_8: 484826152
+      herochar_spritesheet(new)_9: 979775073
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

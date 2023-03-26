@@ -3,7 +3,7 @@ guid: 75cbe299fc4d33e4e86b1b3e875f07f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -199,8 +200,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       herochar_attack_anim_strip_4(new)_0: -1968448510
-      herochar_attack_anim_strip_4(new)_2: 1395598269
       herochar_attack_anim_strip_4(new)_1: -977343608
+      herochar_attack_anim_strip_4(new)_2: 1395598269
       herochar_attack_anim_strip_4(new)_3: -388293538
   spritePackingTag: 
   pSDRemoveMatte: 0

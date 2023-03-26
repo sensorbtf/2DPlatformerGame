@@ -3,7 +3,7 @@ guid: c4fc33cce3a2b324f89bc8717333f640
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -177,8 +178,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mushroom_hit_anim_strip_3_1: 2007843818
       mushroom_hit_anim_strip_3_0: 940188059
+      mushroom_hit_anim_strip_3_1: 2007843818
       mushroom_hit_anim_strip_3_2: 1000328966
   spritePackingTag: 
   pSDRemoveMatte: 0
