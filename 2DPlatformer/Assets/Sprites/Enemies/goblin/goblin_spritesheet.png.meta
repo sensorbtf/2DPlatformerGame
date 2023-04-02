@@ -3,7 +3,7 @@ guid: 8f08870214b568140a27fcd7d2cd26a1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -618,30 +619,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dying2: 1993006575
       Dying: 1581102996
-      iddle2: 1374719968
-      goblin_spritesheet_19: 1267575801
-      Runing3: 311921255
-      Dying5: -604970979
-      attack3: 1692621977
-      damaged: -1407266921
-      attack2: 474784497
-      attack4: -1913822934
       Dying1: -1635180691
-      Dying4: 251122554
-      iddle4: 1824371513
-      Runing4: 1819557141
-      iddle: -958026393
-      Runing5: 1970848223
-      attack: -1284850465
-      damaged1: -1160438991
-      Runing2: -1905088684
-      Runing: -897193908
-      Runing6: -840013327
+      Dying2: 1993006575
       Dying3: -608559540
-      iddle3: -1676205599
+      Dying4: 251122554
+      Dying5: -604970979
+      Runing: -897193908
+      Runing2: -1905088684
+      Runing3: 311921255
+      Runing4: 1819557141
+      Runing5: 1970848223
+      Runing6: -840013327
+      attack: -1284850465
+      attack2: 474784497
+      attack3: 1692621977
+      attack4: -1913822934
+      damaged: -1407266921
+      damaged1: -1160438991
       damaged2: -69435654
+      goblin_spritesheet_19: 1267575801
+      iddle: -958026393
+      iddle2: 1374719968
+      iddle3: -1676205599
+      iddle4: 1824371513
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

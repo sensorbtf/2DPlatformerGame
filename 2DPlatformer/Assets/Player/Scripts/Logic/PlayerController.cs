@@ -28,18 +28,9 @@ public class PlayerController : MonoBehaviour
     private float nextAttackCooldown;
     private int health;
 
-    public int Health
-    {
-        get => health;
-        set
-        {
-            health =- value;
-            if (health <= 0)
-            {
-                //StartCoroutine(Die());
-            }
-        }
-    }
+    public int Health => health;
+
+    public Rigidbody2D RB2D => PlayerMonoConfig.PlayerRigidBody;
 
     public event Action<int> OnHealthLose;
 
@@ -57,6 +48,11 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing)
             return;
+        
+        if (health <= 0)
+        {
+            StartCoroutine(Die());
+        }
         
         input = Input.GetAxisRaw("Horizontal");
         PlayerPositionChecker();
@@ -118,8 +114,6 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall)
             {
-                Health = Health - 2;
-                OnHealthLose?.Invoke(2);
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
                 PlayerMonoConfig.Animator.SetTrigger("Attacking");
             }
@@ -155,6 +149,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        PlayerMonoConfig.Animator.SetTrigger("GettingDamage");
+        OnHealthLose?.Invoke(damage);
+        health -= damage;
+    }
+    
     private void Dash()
     {
         StartCoroutine(PlayerMonoConfig.WallTouchingValidator.position.x >
@@ -183,6 +184,16 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(PlayerStats.DashingCooldown);
         canDash = true;
+    }
+    
+    private IEnumerator Die()
+    {
+        PlayerMonoConfig.PlayerRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
+        PlayerMonoConfig.Animator.SetTrigger("Dying");
+        yield return new WaitForSeconds(0.80f);
+        Destroy(gameObject);
+
+        Time.timeScale = 0;
     }
     
     private void SetWallJumpingToFalse()
@@ -256,7 +267,7 @@ public class PlayerController : MonoBehaviour
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(PlayerMonoConfig.AttackValidator.position, 
             PlayerStats.AttackRange, PlayerMonoConfig.WhatAreEnemies);
     
-        // foreach (Collider2D enemies in enemiesToDamage)
-        //     enemies.GetComponent<Enemy>().TakeDamage(PlayerStats.Damage);
+        foreach (Collider2D enemies in enemiesToDamage)
+            enemies.GetComponent<Enemy>().TakeDamage(PlayerStats.Damage);
     }
 }
