@@ -21,7 +21,7 @@ public class AttackingObject : MonoBehaviour
     }
     private void Update()
     {
-        if (player != null && attackValidator != null && attackCooldown != 0)
+        if (player != null && attackValidator != null && attackCooldown != 0 && !PlayerController.Instance.IsImmune)
             AttackPlayer();
     }
     private void AttackPlayer()

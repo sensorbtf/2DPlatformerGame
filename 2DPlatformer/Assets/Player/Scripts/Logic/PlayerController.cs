@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool isSlidingWall;
     private bool isJumpingFromWall;
+    private bool isImmune = false;
 
     // Hero movement invocations
     private bool doJump = false;
@@ -28,7 +29,11 @@ public class PlayerController : MonoBehaviour
     private float nextAttackCooldown;
     private int health;
 
+    private int playerLayerIndex;
+    private int enemyLayerIndex;
+
     public int Health => health;
+    public bool IsImmune => isImmune;
 
     public Rigidbody2D RB2D => PlayerMonoConfig.PlayerRigidBody;
 
@@ -42,13 +47,16 @@ public class PlayerController : MonoBehaviour
             Destroy(this);
         else
             Instance = this;
+
+        playerLayerIndex = LayerMask.NameToLayer("Player");
+        enemyLayerIndex = LayerMask.NameToLayer("Enemy");
     }
 
     void Update()
     {
         if (isDashing)
             return;
-        
+
         if (health <= 0)
         {
             StartCoroutine(Die());
@@ -110,9 +118,9 @@ public class PlayerController : MonoBehaviour
         if (isJumpingFromWall)
             doJumpFromWall = true;
         
-        if (Time.time > PlayerStats.TimeBetweenAttacks)
+        if (Time.time > nextAttackCooldown)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall)
+            if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall && !isImmune)
             {
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
                 PlayerMonoConfig.Animator.SetTrigger("Attacking");
@@ -151,6 +159,11 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isImmune)
+            return;
+
+        StartCoroutine(TemporaryGodmode());
+
         PlayerMonoConfig.Animator.SetTrigger("GettingDamage");
         OnHealthLose?.Invoke(damage);
         health -= damage;
@@ -185,13 +198,27 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(PlayerStats.DashingCooldown);
         canDash = true;
     }
-    
+
+    private IEnumerator TemporaryGodmode()
+    {
+        isImmune = true;
+        StartIgnoringCollisions();
+        PlayerMonoConfig.Animator.SetBool("isInGodMode", true);
+        yield return new WaitForSeconds(PlayerStats.GodModeDuration);
+        PlayerMonoConfig.Animator.SetBool("isInGodMode", false);
+        StopIgnoringCollisions();
+        isImmune = false;
+    }
+
     private IEnumerator Die()
     {
+        isImmune = false;
+        
         PlayerMonoConfig.PlayerRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
         PlayerMonoConfig.Animator.SetTrigger("Dying");
-        yield return new WaitForSeconds(0.80f);
+        yield return new WaitForSeconds(PlayerStats.DyingDuration);
         Destroy(gameObject);
+        StopIgnoringCollisions();
 
         Time.timeScale = 0;
     }
@@ -223,7 +250,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator JumpOff()
     {
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, true);
-        yield return new WaitForSeconds(PlayerStats.JumpingOffThreshold); // enough time to jump off the one-slice platform
+        yield return new WaitForSeconds(PlayerStats.JumpingOffThreshold); 
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, false);
         doJumpDown = false;
     }
@@ -253,6 +280,14 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
+        bool isTouchingCeiling = Physics2D.OverlapCircle(PlayerMonoConfig.CeilingChecker.position,
+                PlayerMonoConfig.RadiusChecker, PlayerMonoConfig.WhatIsPlatform);
+        
+        if (isGrounded && isTouchingCeiling)
+        {
+            StartCoroutine(JumpOff());
+        }
+
         isTouchingWall = Physics2D.OverlapCircle(PlayerMonoConfig.WallTouchingValidator.position, 
             PlayerMonoConfig.RadiusChecker, PlayerMonoConfig.WhatAreWallsAndCeiling);
         
@@ -261,7 +296,7 @@ public class PlayerController : MonoBehaviour
         else if (input < 0 && isFacingRight)
             FlipHeroSprite();
     }
-    
+   
     private void Attack() // will be used in animation
     {
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(PlayerMonoConfig.AttackValidator.position, 
@@ -269,5 +304,14 @@ public class PlayerController : MonoBehaviour
     
         foreach (Collider2D enemies in enemiesToDamage)
             enemies.GetComponent<Enemy>().TakeDamage(PlayerStats.Damage);
+    }
+
+    private void StartIgnoringCollisions()
+    {
+        Physics2D.IgnoreLayerCollision(playerLayerIndex, enemyLayerIndex, true);
+    }
+    private void StopIgnoringCollisions()
+    {
+        Physics2D.IgnoreLayerCollision(playerLayerIndex, enemyLayerIndex, false);
     }
 }

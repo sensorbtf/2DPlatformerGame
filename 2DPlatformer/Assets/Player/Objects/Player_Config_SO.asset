@@ -18,7 +18,7 @@ MonoBehaviour:
   xWallForce: 5
   yWallForce: 20
   wallJumpTime: 0.1
-  jumpingOffThreshold: 0.176
+  jumpingOffThreshold: 0.2
   dashingPower: 100
   dashingTime: 0.2
   dashingCooldown: 1
@@ -26,3 +26,5 @@ MonoBehaviour:
   damage: 1
   timeBetweenAttacks: 0.4
   attackRange: 0.5
+  dyingDuration: 0.8
+  godModeDuration: 1

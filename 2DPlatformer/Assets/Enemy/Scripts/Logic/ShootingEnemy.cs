@@ -15,17 +15,16 @@ public class ShootingEnemy : Enemy
     }
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0 || !(Time.time > nextShotTime))
             return;
 
-        if (!(Time.time > nextShotTime)) return;
-        
         anim.SetTrigger("Attacking");
         nextShotTime = Time.time + timeBetweenShots;
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Player")) 
+            return;
         
         PlayerController.Instance.TakeDamage(damage);
         PushBack(PushBackForce);

@@ -20,6 +20,8 @@ public class PlayerStatsConfig : ScriptableObject
     [SerializeField] private int damage = 1;
     [SerializeField] private float timeBetweenAttacks = 0.4f; 
     [SerializeField] private float attackRange = 0.5f;
+    [SerializeField] private float dyingDuration = 0.5f;
+    [SerializeField] private float godModeDuration = 1.5f;
     
     public float Speed => speed;
     public float JumpForce => jumpForce;
@@ -36,4 +38,6 @@ public class PlayerStatsConfig : ScriptableObject
     public int Damage => damage;
     public float TimeBetweenAttacks => timeBetweenAttacks; 
     public float AttackRange => attackRange;
+    public float DyingDuration => dyingDuration;
+    public float GodModeDuration => godModeDuration;
 }

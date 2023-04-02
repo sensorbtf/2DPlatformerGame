@@ -7,6 +7,7 @@ public class PlayerMonoConfig : MonoBehaviour
     [SerializeField] private Transform platformTouchingValidator;
     [SerializeField] private Transform wallTouchingValidator;
     [SerializeField] private Transform attackValidator;
+    [SerializeField] private Transform ceilingChecker;
     [SerializeField] private float radiusChecker = 0.3f;
     [SerializeField] private LayerMask whatIsPlatform;
     [SerializeField] private LayerMask whatIsGround;
@@ -21,6 +22,7 @@ public class PlayerMonoConfig : MonoBehaviour
     
     public Transform PlatformTouchingValidator => platformTouchingValidator;
     public Transform WallTouchingValidator => wallTouchingValidator;
+    public Transform CeilingChecker => ceilingChecker;
     public Transform AttackValidator => attackValidator;
     public float RadiusChecker => radiusChecker;
     public LayerMask WhatIsPlatform => whatIsPlatform;
