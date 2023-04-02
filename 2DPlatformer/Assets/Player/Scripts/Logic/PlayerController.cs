@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             Destroy(this);
         else
             Instance = this;
-
+        
         playerLayerIndex = LayerMask.NameToLayer("Player");
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
     }

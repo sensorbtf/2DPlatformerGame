@@ -6,26 +6,14 @@ namespace GameManager
 {
         public class GameManager : MonoBehaviour
         {
-        public static GameManager instance;
-        public TextMeshProUGUI enemiesLeftText;
-        public TextMeshProUGUI leftMusicNodesText;
+        [SerializeField] private TextMeshProUGUI enemiesLeftText;
+        [SerializeField] private TextMeshProUGUI leftMusicNodesText;
         
-        public int totalEnemies; 
-        public int totalNotes; 
-        private int enemiesDefeated;
-        private int notesCollected;
+        private int totalEnemies; 
+        private int totalNotes; 
         
         void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
         }
         
         void Update()
