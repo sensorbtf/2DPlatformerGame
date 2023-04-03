@@ -22,7 +22,7 @@ public class PatrolEnemy : Enemy
         
         transform.position = pointsOfPatrol[0].position;
         patrolWaitTime = startWaitTime;
-            
+        health = baseConfig.Health;
         anim = GetComponent<Animator>();
     }
 
@@ -65,6 +65,7 @@ public class PatrolEnemy : Enemy
         else
         {
             anim.SetBool("isRunning", true);
+            WalkingSoundEffect();
         }
     }
 
@@ -73,7 +74,7 @@ public class PatrolEnemy : Enemy
         if (!collision.CompareTag("Player")) 
             return;
         
-        PlayerController.Instance.TakeDamage(damage);
+        PlayerController.Instance.TakeDamage(baseConfig.Damage);
         PushBack(PushBackForce);
     }
 
@@ -85,5 +86,16 @@ public class PatrolEnemy : Enemy
         localScale = new Vector2(-localScale.x, localScale.y);
         transform1.localScale = localScale;
         isFacingRight = !isFacingRight;
+    }
+    
+    private void WalkingSoundEffect()
+    {
+        if (transform.position != pointsOfPatrol[currentPointIndex].position && !SoundManager.Instance.EnemyEffectsSource.isPlaying)
+        {
+            SoundManager.Instance.PlayEnemyEffects(baseConfig.RunningSound);
+            SoundManager.Instance.EnemyEffectsSource.Play();
+        }
+        else if (transform.position == pointsOfPatrol[currentPointIndex].position)
+            SoundManager.Instance.EnemyEffectsSource.Stop();
     }
 }

@@ -6,6 +6,8 @@ public class AttackingObject : MonoBehaviour
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private float attackCooldown = 1.5f;
+    [Header("Sounds")]
+    [SerializeField] private AudioClip attackAudio;
 
     private float nextAttack = 0.2f;
     private Animator anim;
@@ -31,6 +33,8 @@ public class AttackingObject : MonoBehaviour
             Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackValidator.position, attackRange, whatIsPlayer);
             foreach (Collider2D player in playerToDamage)
             {
+                SoundManager.Instance.PlayEnemyEffects(attackAudio);
+                
                 player.GetComponent<PlayerController>().TakeDamage(attackDamage);
             }
             anim.SetTrigger("Attacking");

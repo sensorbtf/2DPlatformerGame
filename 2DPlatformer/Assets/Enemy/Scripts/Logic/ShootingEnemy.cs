@@ -12,6 +12,7 @@ public class ShootingEnemy : Enemy
     private void Start()
     {
         anim = GetComponent<Animator>();
+        health = baseConfig.Health;
     }
     private void Update()
     {
@@ -26,7 +27,7 @@ public class ShootingEnemy : Enemy
         if (!collision.CompareTag("Player")) 
             return;
         
-        PlayerController.Instance.TakeDamage(damage);
+        PlayerController.Instance.TakeDamage(baseConfig.Damage);
         PushBack(PushBackForce);
     }
     

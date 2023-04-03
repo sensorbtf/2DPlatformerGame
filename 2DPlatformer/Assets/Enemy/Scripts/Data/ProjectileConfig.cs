@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-//[CreateAssetMenu(fileName = "Projectile_Config_SO", menuName = "Configs/Enemy")]
+[CreateAssetMenu(fileName = "Projectile_Config_SO", menuName = "Configs/Projectile")]
 public class ProjectileConfig : ScriptableObject
 {
     [Header("Projectile data")]
@@ -11,4 +11,9 @@ public class ProjectileConfig : ScriptableObject
 
     [Header("Sounds")]
     [SerializeField] private AudioClip bombExplode;
+
+    public float Speed => speed;
+    public int Damage => damage;
+    public float LifeTime => lifeTime;
+    public AudioClip BombExplode => bombExplode;
 }
