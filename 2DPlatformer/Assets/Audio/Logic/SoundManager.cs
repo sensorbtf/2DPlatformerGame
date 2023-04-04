@@ -1,12 +1,14 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
 	public AudioSource MusicSource;
-	public AudioSource PlayerEffectsSource;
-	public AudioSource PlayerWalkingSource;
 	public AudioSource EnemyEffectsSource;
-	public AudioSource EnviromentEffectSource;
+
+	private List<AudioSource> audioSources;
+	private Dictionary<GameObject, AudioSource> walkingAudioSources;
 
 	public static SoundManager Instance { get; private set; }
 
@@ -16,7 +18,9 @@ public class SoundManager : MonoBehaviour
 			Instance = this;
 		else if (Instance != this)
 			Destroy(gameObject);
-		
+
+		audioSources = new List<AudioSource>();
+		walkingAudioSources = new Dictionary<GameObject, AudioSource>();
 		DontDestroyOnLoad(gameObject);
 	}
 
@@ -26,36 +30,64 @@ public class SoundManager : MonoBehaviour
 		MusicSource.Play();
 	}
     
-	public void PlayWalkingEffect(AudioClip clip)
+	public void PlayEffects(AudioClip clip)
 	{
-		PlayerWalkingSource.clip = clip;
-		PlayerWalkingSource.Play();
+		foreach (var source in audioSources)
+		{
+			if (!source.isPlaying)
+			{
+				source.clip = clip;
+				source.Play();
+				return;
+			}
+		}
+		
+		var newAudioComponent = gameObject.AddComponent<AudioSource>();
+		audioSources.Add(newAudioComponent);
+		newAudioComponent.clip = clip;
+		newAudioComponent.Play();
 	}
 	
-	public void PlayPlayerEffects(AudioClip clip)
+	public void PlayWalkingEffects(GameObject gO, AudioClip clip) 
 	{
-		PlayerEffectsSource.clip = clip;
-		PlayerEffectsSource.Play();
+		foreach (var source in walkingAudioSources.ToList())
+		{
+			if (source.Key == null)
+			{
+				walkingAudioSources.Remove(source.Key);
+				continue;
+			}
+
+			if (source.Key == gO && !source.Value.isPlaying)
+			{
+				source.Value.clip = clip;
+				source.Value.Play();
+				return;
+			}
+		}
+
+		if (walkingAudioSources.Any(x => x.Key == gO))
+			return;
+		
+		var newAudioComponent = gameObject.AddComponent<AudioSource>();
+		walkingAudioSources.Add(gO, newAudioComponent);
+		newAudioComponent.clip = clip;
+		newAudioComponent.Play();
 	}
-	
-	public void PlayEnemyEffects(AudioClip clip)
-	{
-		EnemyEffectsSource.clip = clip;
-		EnemyEffectsSource.Play();
-	}
-	
-	public void PlayEnvironmentEffects(AudioClip clip)
-	{
-		EnviromentEffectSource.clip = clip;
-		EnviromentEffectSource.Play();
-	}
-	
-	public void MuteDespiteMusic()
+
+	public void MuteEverythingDespiteMusic()
 	{
 		MusicSource.loop = false;
-		PlayerEffectsSource.mute = true;
 		EnemyEffectsSource.mute = true;
-		EnviromentEffectSource.mute = true;
-		PlayerWalkingSource.mute = true;
+
+		for (int i = 0; i < audioSources.Count; i++)
+		{
+			audioSources[i].mute = true;
+		}
+
+		foreach (var walkingAudioSource in walkingAudioSources)
+		{
+			walkingAudioSource.Value.mute = true;
+		}
 	}
 }

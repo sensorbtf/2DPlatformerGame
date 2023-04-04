@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        SoundManager.Instance.PlayEffects(config.BombExplode);
+        
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             PlayerController.Instance.TakeDamage(config.Damage);
@@ -25,7 +27,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
     private void DirectionOfAttack()
     {

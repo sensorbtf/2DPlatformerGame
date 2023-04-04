@@ -33,7 +33,17 @@ public class PatrolEnemy : Enemy
 
         PatrollingTask();
     }
+    
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
 
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+    
     private void PatrollingTask()
     {
         transform.position = Vector2.MoveTowards(transform.position, patrolPointsPosition[currentPointIndex],
@@ -90,10 +100,9 @@ public class PatrolEnemy : Enemy
     
     private void WalkingSoundEffect()
     {
-        if (transform.position != pointsOfPatrol[currentPointIndex].position && !SoundManager.Instance.EnemyEffectsSource.isPlaying)
+        if (transform.position != pointsOfPatrol[currentPointIndex].position)
         {
-            SoundManager.Instance.PlayEnemyEffects(baseConfig.RunningSound);
-            SoundManager.Instance.EnemyEffectsSource.Play();
+            SoundManager.Instance.PlayWalkingEffects(gameObject, baseConfig.RunningSound);
         }
         else if (transform.position == pointsOfPatrol[currentPointIndex].position)
             SoundManager.Instance.EnemyEffectsSource.Stop();

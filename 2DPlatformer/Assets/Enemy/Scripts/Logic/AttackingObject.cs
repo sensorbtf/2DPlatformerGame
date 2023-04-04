@@ -33,7 +33,7 @@ public class AttackingObject : MonoBehaviour
             Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackValidator.position, attackRange, whatIsPlayer);
             foreach (Collider2D player in playerToDamage)
             {
-                SoundManager.Instance.PlayEnemyEffects(attackAudio);
+                SoundManager.Instance.PlayEffects(attackAudio);
                 
                 player.GetComponent<PlayerController>().TakeDamage(attackDamage);
             }

@@ -264,7 +264,7 @@ MonoBehaviour:
   attackDamage: 1
   attackRange: 1
   attackCooldown: 1.5
-  attackAudio: {fileID: 0}
+  attackAudio: {fileID: 8300000, guid: 403d7d2ffa265f2458782e87261eab9c, type: 3}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512

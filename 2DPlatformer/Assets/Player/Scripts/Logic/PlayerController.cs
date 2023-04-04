@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall && !isImmune)
             {
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
-                SoundManager.Instance.PlayPlayerEffects(PlayerStats.AttackSound);
+                SoundManager.Instance.PlayEffects(PlayerStats.AttackSound);
                 PlayerMonoConfig.Animator.SetTrigger("Attacking");
             }
         }
@@ -134,13 +134,10 @@ public class PlayerController : MonoBehaviour
         if (input != 0 && isGrounded)
         {
             PlayerMonoConfig.Animator.SetBool("isRunning", true);
-            if (input != 0 && !SoundManager.Instance.PlayerWalkingSource.isPlaying)
+            if (input != 0)
             {
-                SoundManager.Instance.PlayWalkingEffect(PlayerStats.RunningSound);
-                SoundManager.Instance.PlayerWalkingSource.Play();
+                SoundManager.Instance.PlayWalkingEffects(gameObject, PlayerStats.RunningSound);
             }
-            else if (input == 0 || !isGrounded)
-                SoundManager.Instance.PlayerWalkingSource.Stop();
         }
         else
             PlayerMonoConfig.Animator.SetBool("isRunning", false);
@@ -170,7 +167,7 @@ public class PlayerController : MonoBehaviour
         if (isImmune)
             return;
 
-        SoundManager.Instance.PlayPlayerEffects(PlayerStats.GetDamagedSound);
+        SoundManager.Instance.PlayEffects(PlayerStats.GetDamagedSound);
         
         if (Health > 0)
             StartCoroutine(TemporaryGodmode());
@@ -228,7 +225,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Die()
     {
         SoundManager.Instance.PlayMusic(PlayerStats.DeathSound);
-        SoundManager.Instance.MuteDespiteMusic();
+        SoundManager.Instance.MuteEverythingDespiteMusic();
         
         isImmune = false;
         
@@ -261,7 +258,7 @@ public class PlayerController : MonoBehaviour
     
     private void Jump()
     {
-        SoundManager.Instance.PlayPlayerEffects(PlayerStats.JumpSound);
+        SoundManager.Instance.PlayEffects(PlayerStats.JumpSound);
         
         PlayerMonoConfig.PlayerRigidBody.velocity = Vector2.up * PlayerStats.JumpForce;
         doJump = false;
@@ -269,7 +266,7 @@ public class PlayerController : MonoBehaviour
     
     private IEnumerator JumpOff()
     {
-        SoundManager.Instance.PlayPlayerEffects(PlayerStats.JumpedDownSound);
+        SoundManager.Instance.PlayWalkingEffects(gameObject, PlayerStats.JumpedDownSound);
         
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, true);
         yield return new WaitForSeconds(PlayerStats.JumpingOffThreshold); 
