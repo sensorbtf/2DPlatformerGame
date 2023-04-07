@@ -2244,6 +2244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 710972695, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9f14897dc2401b4e96f67127b1fe724, type: 3}
     - target: {fileID: 6389136547309640563, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
       propertyPath: m_Name
       value: InGameUi
