@@ -159,10 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8dad01db9518f47bcc77690c1a7706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  damage: 0
-  pushBackForce: 0
-  timeToDestroyGO: 0.6
+  baseConfig: {fileID: 11400000, guid: c1c05b3f1b7c34d4a821ca2031ca71ab, type: 2}
 --- !u!58 &6409009965797587294
 CircleCollider2D:
   m_ObjectHideFlags: 0

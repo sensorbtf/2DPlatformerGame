@@ -11,6 +11,7 @@ public class PatrolEnemy : Enemy
     private int currentPointIndex;
     private Vector2[] patrolPointsPosition;
     private bool isFacingRight;
+    private AttackingObject attackingObject;
 
     private void Start()
     {
@@ -20,20 +21,37 @@ public class PatrolEnemy : Enemy
             patrolPointsPosition[i] = pointsOfPatrol[i].position;
         }
         
+        attackingObject = gameObject.GetComponent(typeof(AttackingObject)) as AttackingObject;
+        
         transform.position = pointsOfPatrol[0].position;
         patrolWaitTime = startWaitTime;
-            
+        health = baseConfig.Health;
         anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (health <= 0)
+        {
+            if (attackingObject != null)
+               attackingObject.CanAttack = false;
+            
             return;
+        }
 
         PatrollingTask();
     }
+    
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
 
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+    
     private void PatrollingTask()
     {
         transform.position = Vector2.MoveTowards(transform.position, patrolPointsPosition[currentPointIndex],
@@ -65,6 +83,7 @@ public class PatrolEnemy : Enemy
         else
         {
             anim.SetBool("isRunning", true);
+            WalkingSoundEffect();
         }
     }
 
@@ -73,7 +92,7 @@ public class PatrolEnemy : Enemy
         if (!collision.CompareTag("Player")) 
             return;
         
-        PlayerController.Instance.TakeDamage(damage);
+        PlayerController.Instance.TakeDamage(baseConfig.Damage);
         PushBack(PushBackForce);
     }
 
@@ -85,5 +104,15 @@ public class PatrolEnemy : Enemy
         localScale = new Vector2(-localScale.x, localScale.y);
         transform1.localScale = localScale;
         isFacingRight = !isFacingRight;
+    }
+    
+    private void WalkingSoundEffect()
+    {
+        if (transform.position != pointsOfPatrol[currentPointIndex].position)
+        {
+            SoundManager.Instance.PlayWalkingEffects(gameObject, baseConfig.RunningSound);
+        }
+        else if (transform.position == pointsOfPatrol[currentPointIndex].position)
+            SoundManager.Instance.EnemyEffectsSource.Stop();
     }
 }

@@ -210,9 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20b9e554923fee48a1a8a7accb338bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  damage: 1
-  pushBackForce: 3
+  baseConfig: {fileID: 11400000, guid: c1c05b3f1b7c34d4a821ca2031ca71ab, type: 2}
   speed: 2
   startWaitTime: 1.5
   pointsOfPatrol:

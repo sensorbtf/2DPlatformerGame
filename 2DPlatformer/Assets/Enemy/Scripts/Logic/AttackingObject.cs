@@ -6,6 +6,8 @@ public class AttackingObject : MonoBehaviour
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackRange = 1f;
     [SerializeField] private float attackCooldown = 1.5f;
+    [Header("Sounds")]
+    [SerializeField] private AudioClip attackAudio;
 
     private float nextAttack = 0.2f;
     private Animator anim;
@@ -14,14 +16,17 @@ public class AttackingObject : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] Transform attackValidator;
 
+    public bool CanAttack = true;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
         anim = GetComponent<Animator>();
     }
     private void Update()
     {
-        if (player != null && attackValidator != null && attackCooldown != 0 && !PlayerController.Instance.IsImmune)
+        if (CanAttack && player != null && attackValidator != null && attackCooldown != 0 && !PlayerController.Instance.IsImmune)
             AttackPlayer();
     }
     private void AttackPlayer()
@@ -31,8 +36,11 @@ public class AttackingObject : MonoBehaviour
             Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackValidator.position, attackRange, whatIsPlayer);
             foreach (Collider2D player in playerToDamage)
             {
+                SoundManager.Instance.PlayEffects(attackAudio);
+                
                 player.GetComponent<PlayerController>().TakeDamage(attackDamage);
             }
+
             anim.SetTrigger("Attacking");
             nextAttack = Time.time + attackCooldown;
         }

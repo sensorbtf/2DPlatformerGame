@@ -38,15 +38,18 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D RB2D => PlayerMonoConfig.PlayerRigidBody;
 
     public event Action<int> OnHealthLose;
+    public event Action OnDeath;
 
     private void Awake()
     {
+        gameObject.SetActive(true);
+
         health = PlayerStats.Health;
 
-        if (Instance != null && Instance != this)
-            Destroy(this);
-        else
+        if (Instance == null)
             Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
         
         playerLayerIndex = LayerMask.NameToLayer("Player");
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            SoundManager.Instance.PlayMusic(PlayerStats.DeathSound);
             StartCoroutine(Die());
         }
         
@@ -123,6 +127,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall && !isImmune)
             {
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
+                SoundManager.Instance.PlayEffects(PlayerStats.AttackSound);
                 PlayerMonoConfig.Animator.SetTrigger("Attacking");
             }
         }
@@ -130,9 +135,13 @@ public class PlayerController : MonoBehaviour
 
     private void HeroStateAnimations()
     {
-        if (input != 0 && isGrounded )
+        if (input != 0 && isGrounded)
         {
             PlayerMonoConfig.Animator.SetBool("isRunning", true);
+            if (input != 0)
+            {
+                SoundManager.Instance.PlayWalkingEffects(gameObject, PlayerStats.RunningSound);
+            }
         }
         else
             PlayerMonoConfig.Animator.SetBool("isRunning", false);
@@ -162,7 +171,10 @@ public class PlayerController : MonoBehaviour
         if (isImmune)
             return;
 
-        StartCoroutine(TemporaryGodmode());
+        SoundManager.Instance.PlayEffects(PlayerStats.GetDamagedSound);
+        
+        if (Health > 0)
+            StartCoroutine(TemporaryGodmode());
 
         PlayerMonoConfig.Animator.SetTrigger("GettingDamage");
         OnHealthLose?.Invoke(damage);
@@ -201,6 +213,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator TemporaryGodmode()
     {
+        SoundManager.Instance.MusicSource.pitch = 1.5f;
+
         isImmune = true;
         StartIgnoringCollisions();
         PlayerMonoConfig.Animator.SetBool("isInGodMode", true);
@@ -208,6 +222,8 @@ public class PlayerController : MonoBehaviour
         PlayerMonoConfig.Animator.SetBool("isInGodMode", false);
         StopIgnoringCollisions();
         isImmune = false;
+        
+        SoundManager.Instance.MusicSource.pitch = 1f;
     }
 
     private IEnumerator Die()
@@ -217,9 +233,10 @@ public class PlayerController : MonoBehaviour
         PlayerMonoConfig.PlayerRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
         PlayerMonoConfig.Animator.SetTrigger("Dying");
         yield return new WaitForSeconds(PlayerStats.DyingDuration);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         StopIgnoringCollisions();
 
+        OnDeath?.Invoke();
         Time.timeScale = 0;
     }
     
@@ -243,12 +260,16 @@ public class PlayerController : MonoBehaviour
     
     private void Jump()
     {
+        SoundManager.Instance.PlayEffects(PlayerStats.JumpSound);
+        
         PlayerMonoConfig.PlayerRigidBody.velocity = Vector2.up * PlayerStats.JumpForce;
         doJump = false;
     }
     
     private IEnumerator JumpOff()
     {
+        SoundManager.Instance.PlayWalkingEffects(gameObject, PlayerStats.JumpedDownSound);
+        
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, true);
         yield return new WaitForSeconds(PlayerStats.JumpingOffThreshold); 
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, false);

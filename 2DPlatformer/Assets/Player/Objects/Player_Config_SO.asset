@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbd6631d172952489ff146ce3ef2366, type: 3}
   m_Name: Player_Config_SO
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   jumpForce: 30
   wallSlidingSpeed: 3
   xWallForce: 5
@@ -23,8 +23,14 @@ MonoBehaviour:
   dashingTime: 0.2
   dashingCooldown: 1
   health: 5
-  damage: 1
+  damage: 3
   timeBetweenAttacks: 0.4
   attackRange: 0.5
   dyingDuration: 0.8
   godModeDuration: 1
+  RunningSound: {fileID: 8300000, guid: 2297347d09698b848ad3da652b4e9944, type: 3}
+  GetDamagedSound: {fileID: 8300000, guid: f290e488c013f4e4285663577b1de04b, type: 3}
+  JumpSound: {fileID: 8300000, guid: 4e100854c4e3534409010e6c956a4260, type: 3}
+  JumpedDownSound: {fileID: 8300000, guid: f4d07e90d3250bb4aaf4ef4b46125a0e, type: 3}
+  AttackSound: {fileID: 8300000, guid: 403d7d2ffa265f2458782e87261eab9c, type: 3}
+  DeathSound: {fileID: 8300000, guid: e084e9750c6181341be6d347323e0d88, type: 3}

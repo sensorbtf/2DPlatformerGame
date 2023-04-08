@@ -178,9 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066975144a05f3f4792bdd04129c82fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  damage: 1
-  pushBackForce: 2.5
+  baseConfig: {fileID: 11400000, guid: c1c05b3f1b7c34d4a821ca2031ca71ab, type: 2}
   projectile: {fileID: 4388832282092376842, guid: 0e30b89adb630fd48920b0c3f5203cc2, type: 3}
   timeBetweenShots: 2
   shotPoint: {fileID: 837914420}
+  attackClip: {fileID: 8300000, guid: 403d7d2ffa265f2458782e87261eab9c, type: 3}

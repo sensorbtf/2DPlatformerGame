@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281612b498b6f894b9c4e41c1f2d9269, type: 3}
+  m_Name: Faster_Projectile_Config_SO
+  m_EditorClassIdentifier: 
+  speed: 2.02
+  damage: 2
+  lifeTime: 3
+  bombExplode: {fileID: 8300000, guid: 4c83d467774bbf34780130b6d6f937d7, type: 3}

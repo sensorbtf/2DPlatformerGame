@@ -23,6 +23,15 @@ public class PlayerStatsConfig : ScriptableObject
     [SerializeField] private float dyingDuration = 0.5f;
     [SerializeField] private float godModeDuration = 1.5f;
     
+    // Sound
+    [Header("Sounds")]
+    [SerializeField] public AudioClip RunningSound;
+    [SerializeField] public AudioClip GetDamagedSound;
+    [SerializeField] public AudioClip JumpSound;
+    [SerializeField] public AudioClip JumpedDownSound;
+    [SerializeField] public AudioClip AttackSound;
+    [SerializeField] public AudioClip DeathSound;
+    
     public float Speed => speed;
     public float JumpForce => jumpForce;
     public float WallSlidingSpeed => wallSlidingSpeed;

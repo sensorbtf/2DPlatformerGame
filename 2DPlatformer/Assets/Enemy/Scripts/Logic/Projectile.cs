@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private int damage;
-    [SerializeField] private float lifeTime;
+    [SerializeField] private ProjectileConfig config;
 
     private void Start()
     {
-        Destroy(gameObject, lifeTime);
+        Destroy(gameObject, config.LifeTime);
     }
 
     private void FixedUpdate()
@@ -18,19 +16,20 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        SoundManager.Instance.PlayEffects(config.BombExplode);
+        
         if (collision.gameObject.GetComponent<PlayerController>())
         {
-            PlayerController.Instance.TakeDamage(damage);
+            PlayerController.Instance.TakeDamage(config.Damage);
             Destroy(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
     }
     private void DirectionOfAttack()
     {
-        transform.Translate(speed * Time.deltaTime * Vector2.right);
+        transform.Translate(config.Speed * Time.deltaTime * Vector2.right);
     }
 }
