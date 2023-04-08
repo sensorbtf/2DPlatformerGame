@@ -270,3 +270,4 @@ MonoBehaviour:
     m_Bits: 512
   player: {fileID: 0}
   attackValidator: {fileID: 315188561}
+  CanAttack: 1

@@ -11,6 +11,7 @@ public class PatrolEnemy : Enemy
     private int currentPointIndex;
     private Vector2[] patrolPointsPosition;
     private bool isFacingRight;
+    private AttackingObject attackingObject;
 
     private void Start()
     {
@@ -19,6 +20,8 @@ public class PatrolEnemy : Enemy
         {
             patrolPointsPosition[i] = pointsOfPatrol[i].position;
         }
+        
+        attackingObject = gameObject.GetComponent(typeof(AttackingObject)) as AttackingObject;
         
         transform.position = pointsOfPatrol[0].position;
         patrolWaitTime = startWaitTime;
@@ -29,7 +32,12 @@ public class PatrolEnemy : Enemy
     private void Update()
     {
         if (health <= 0)
+        {
+            if (attackingObject != null)
+               attackingObject.CanAttack = false;
+            
             return;
+        }
 
         PatrollingTask();
     }

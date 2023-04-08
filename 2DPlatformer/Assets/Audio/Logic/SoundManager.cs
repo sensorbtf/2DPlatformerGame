@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SoundManager : MonoBehaviour
 {
-	public AudioSource MusicSource;
-	public AudioSource EnemyEffectsSource;
-
 	private List<AudioSource> audioSources;
 	private Dictionary<GameObject, AudioSource> walkingAudioSources;
+	
+	public AudioSource MusicSource;
+	
+	public AudioSource EnemyEffectsSource;
 
 	public static SoundManager Instance { get; private set; }
 
@@ -18,17 +20,31 @@ public class SoundManager : MonoBehaviour
 			Instance = this;
 		else if (Instance != this)
 			Destroy(gameObject);
+		
 
 		audioSources = new List<AudioSource>();
 		walkingAudioSources = new Dictionary<GameObject, AudioSource>();
-		DontDestroyOnLoad(gameObject);
+		UnMuteEverythingDespiteMusic();
 	}
 
-    public void PlayMusic(AudioClip clip)
+    public void PlayMusic(AudioClip clip, bool shouldStop = false)
 	{
+		if (shouldStop)
+		{
+			MusicSource.Stop();
+			return;
+		}
+		
+		MusicSource.Stop();
+		MusicSource.loop = false;
 		MusicSource.clip = clip;
 		MusicSource.Play();
 	}
+    
+    public void StopMusic()
+    {
+		MusicSource.Stop();
+    }
     
 	public void PlayEffects(AudioClip clip)
 	{
@@ -88,6 +104,22 @@ public class SoundManager : MonoBehaviour
 		foreach (var walkingAudioSource in walkingAudioSources)
 		{
 			walkingAudioSource.Value.mute = true;
+		}
+	}
+	
+	public void UnMuteEverythingDespiteMusic()
+	{
+		MusicSource.loop = true;
+		EnemyEffectsSource.mute = false;
+
+		for (int i = 0; i < audioSources.Count; i++)
+		{
+			audioSources[i].mute = false;
+		}
+
+		foreach (var walkingAudioSource in walkingAudioSources)
+		{
+			walkingAudioSource.Value.mute = false;
 		}
 	}
 }

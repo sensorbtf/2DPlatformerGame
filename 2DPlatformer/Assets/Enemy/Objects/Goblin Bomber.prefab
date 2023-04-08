@@ -182,4 +182,4 @@ MonoBehaviour:
   projectile: {fileID: 4388832282092376842, guid: 0e30b89adb630fd48920b0c3f5203cc2, type: 3}
   timeBetweenShots: 2
   shotPoint: {fileID: 837914420}
-  attackClip: {fileID: 0}
+  attackClip: {fileID: 8300000, guid: 403d7d2ffa265f2458782e87261eab9c, type: 3}

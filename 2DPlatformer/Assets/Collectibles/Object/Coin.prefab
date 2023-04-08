@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1652246935848856308}
   - component: {fileID: 1652246935848856311}
-  - component: {fileID: 1652246935848856310}
   - component: {fileID: 1652246935848856305}
   - component: {fileID: 1609422829}
   m_Layer: 8
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,26 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1652246935848856310
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652246935848856309}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 33a854fbac7a9fc44aaa25529da26ace, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!58 &1652246935848856305
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1652246935848856309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c79818f2a8fcc943bd1814c4ee8b0a0, type: 3}
+  m_Script: {fileID: 11500000, guid: e45a1aaf6b510cf44bfdc6104ae874b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collectingCoinAudio: {fileID: 8300000, guid: 456e40f3791fa3f458b33d17465807de, type: 3}

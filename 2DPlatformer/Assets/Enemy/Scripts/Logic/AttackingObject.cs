@@ -16,14 +16,17 @@ public class AttackingObject : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] Transform attackValidator;
 
+    public bool CanAttack = true;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
         anim = GetComponent<Animator>();
     }
     private void Update()
     {
-        if (player != null && attackValidator != null && attackCooldown != 0 && !PlayerController.Instance.IsImmune)
+        if (CanAttack && player != null && attackValidator != null && attackCooldown != 0 && !PlayerController.Instance.IsImmune)
             AttackPlayer();
     }
     private void AttackPlayer()

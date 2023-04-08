@@ -38,9 +38,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D RB2D => PlayerMonoConfig.PlayerRigidBody;
 
     public event Action<int> OnHealthLose;
+    public event Action OnDeath;
 
     private void Awake()
     {
+        gameObject.SetActive(true);
+
         health = PlayerStats.Health;
 
         if (Instance == null)
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            SoundManager.Instance.PlayMusic(PlayerStats.DeathSound);
             StartCoroutine(Die());
         }
         
@@ -224,17 +228,15 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Die()
     {
-        SoundManager.Instance.PlayMusic(PlayerStats.DeathSound);
-        SoundManager.Instance.MuteEverythingDespiteMusic();
-        
         isImmune = false;
         
         PlayerMonoConfig.PlayerRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
         PlayerMonoConfig.Animator.SetTrigger("Dying");
         yield return new WaitForSeconds(PlayerStats.DyingDuration);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         StopIgnoringCollisions();
 
+        OnDeath?.Invoke();
         Time.timeScale = 0;
     }
     

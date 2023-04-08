@@ -159,7 +159,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.47, y: 0.9}
+  m_Size: {x: 0.39, y: 0.9}
   m_Direction: 0
 --- !u!114 &505883614
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   wallTouchingValidator: {fileID: 8036084632636520769}
   attackValidator: {fileID: 8036084631302005813}
   ceilingChecker: {fileID: 1585502984}
-  radiusChecker: 0.3
+  radiusChecker: 0.15
   whatIsPlatform:
     serializedVersion: 2
     m_Bits: 64
