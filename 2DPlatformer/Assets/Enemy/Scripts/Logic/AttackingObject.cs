@@ -40,6 +40,7 @@ public class AttackingObject : MonoBehaviour
                 
                 player.GetComponent<PlayerController>().TakeDamage(attackDamage);
             }
+
             anim.SetTrigger("Attacking");
             nextAttack = Time.time + attackCooldown;
         }
