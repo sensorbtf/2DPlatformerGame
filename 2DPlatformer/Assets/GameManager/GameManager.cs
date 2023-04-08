@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,8 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject victoryPanel;
     
+    [SerializeField] private GameObject Guitar;
+    [SerializeField] private GameObject Syntetizer;
+    [SerializeField] private GameObject Drums;
+    
     private int totalEnemies; 
     private int totalNotes; 
+    private Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
     
     void Start()
     {
@@ -45,16 +51,19 @@ public class GameManager : MonoBehaviour
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         totalNotes = GameObject.FindGameObjectsWithTag("Note").Length;
 
+        if (enemiesLeftText.text != totalEnemies.ToString() || leftMusicNodesText.text != totalNotes.ToString())
+        {
+            IsLevelCompleted();
+        }
+        
         enemiesLeftText.text = totalEnemies.ToString();
         leftMusicNodesText.text = totalNotes.ToString();
-        
-        IsLevelCompleted();
     }
 
     private void IsLevelCompleted()
     {            
         if (totalEnemies == 0 && totalNotes == 0)
-            ShowLevelCompletedPanel();
+            StartCoroutine(ShowLevelCompletedPanel());
     }
 
     private void ShowGameOverPanel()
@@ -63,10 +72,35 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    private void ShowLevelCompletedPanel()
+    private IEnumerator ShowLevelCompletedPanel()
     {
-        victoryPanel.SetActive(true);
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
+
+        var levelCompleted = PlayerPrefs.GetInt("CurrentLevel");
+        GameObject newGo = null;
+        switch (levelCompleted)
+        {
+            case 1:
+                newGo = Instantiate(Drums, screenCenter, Quaternion.identity);
+                newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
+                break;
+            case 2:
+                newGo = Instantiate(Syntetizer, screenCenter, Quaternion.identity);
+                newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
+                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
+                break;
+            
+            case 3:
+                newGo = Instantiate(Guitar, screenCenter, Quaternion.identity);
+                newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
+                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
+                break;
+        }
+        yield return new WaitForSeconds(3f);
+        Destroy(newGo);
+        victoryPanel.SetActive(true);
         Time.timeScale = 0f;
     }
     

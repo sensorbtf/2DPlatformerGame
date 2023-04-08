@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -65,11 +63,6 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel")+1);
         }
-    }    
-    
-    public void DeletePrefs()
-    {
-        PlayerPrefs.DeleteAll();
     }
 
     public void QuitGame()
@@ -77,7 +70,22 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
     
-    IEnumerator MoveToPosition(Transform p_transform, GameObject p_gO, float p_timeToMove) {
+    public void DeletePrefs()
+    {
+        if (canStart)
+        {
+            PlayerPrefs.DeleteAll();
+            Syntetizer.SetActive(true);
+            Drums.SetActive(true);
+            Guitar.SetActive(true);
+            Goblin.SetActive(true);
+            canStart = false;
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
+            StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
+        }
+    }
+    
+    private IEnumerator MoveToPosition(Transform p_transform, GameObject p_gO, float p_timeToMove) {
         Vector3 currentPos = p_transform.position;
         float t = 0f;
         while (t < 1) {
