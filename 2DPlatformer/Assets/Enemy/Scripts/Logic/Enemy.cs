@@ -4,7 +4,6 @@ using UnityEngine.Serialization;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [Header("Sounds")]
     [SerializeField] protected EnemyConfig baseConfig;
     
     protected float PushBackForce => baseConfig.PushBackForce * 1000;

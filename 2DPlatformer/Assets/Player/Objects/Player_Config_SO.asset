@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbd6631d172952489ff146ce3ef2366, type: 3}
   m_Name: Player_Config_SO
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 5
   jumpForce: 30
   wallSlidingSpeed: 3
   xWallForce: 5
@@ -22,8 +22,8 @@ MonoBehaviour:
   dashingPower: 100
   dashingTime: 0.2
   dashingCooldown: 1
-  health: 5
-  damage: 3
+  health: 3
+  damage: 2
   timeBetweenAttacks: 0.4
   attackRange: 0.5
   dyingDuration: 0.8

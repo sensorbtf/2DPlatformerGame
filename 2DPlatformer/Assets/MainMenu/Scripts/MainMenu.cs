@@ -37,6 +37,7 @@ public class MainMenu : MonoBehaviour
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
                 Syntetizer.SetActive(true);
+                Syntetizer.SetActive(true);
                 Drums.SetActive(true);
                 Guitar.SetActive(false);
                 Goblin.SetActive(false);
