@@ -13,10 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject Syntetizer;
     [SerializeField] private GameObject Drums;
     [SerializeField] private GameObject Player;
-    
-    [SerializeField] private AudioClip DrumsOnly;
-    [SerializeField] private AudioClip DrumsAndSyntetizer;
-    [SerializeField] private AudioClip EveryInstrument;
 
     private bool canStart = false;
     private bool isFacingRight = false;
@@ -32,7 +28,7 @@ public class MainMenu : MonoBehaviour
             case 1:
                 Drums.SetActive(true);
                 SoundManager.Instance.StopMusic();
-                SoundManager.Instance.PlayMusic(DrumsOnly);
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
                 Guitar.SetActive(false);
                 Syntetizer.SetActive(false);
                 Goblin.SetActive(false);
@@ -41,7 +37,7 @@ public class MainMenu : MonoBehaviour
             
             case 2:
                 SoundManager.Instance.StopMusic();
-                SoundManager.Instance.PlayMusic(DrumsAndSyntetizer);
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
                 Syntetizer.SetActive(true);
                 Drums.SetActive(true);
                 Guitar.SetActive(false);
@@ -51,7 +47,7 @@ public class MainMenu : MonoBehaviour
             
             case 3:
                 SoundManager.Instance.StopMusic();
-                SoundManager.Instance.PlayMusic(EveryInstrument);
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
                 Syntetizer.SetActive(true);
                 Drums.SetActive(true);
                 Guitar.SetActive(true);

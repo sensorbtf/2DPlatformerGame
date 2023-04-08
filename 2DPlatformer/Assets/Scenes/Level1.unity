@@ -1753,6 +1753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5793648f33c77a64092fffe3b2dac4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DrumsOnly: {fileID: 8300000, guid: d5e336bd785dd7f4f85573841c804a69, type: 3}
+  DrumsAndSyntetizer: {fileID: 8300000, guid: 89bf534ade3b18b4ebeaa1891f55e931, type: 3}
+  EveryInstrument: {fileID: 8300000, guid: a4dd6fda9def4e247803267bd662f228, type: 3}
   MusicSource: {fileID: 1111984041}
   EnemyEffectsSource: {fileID: 1111984040}
 --- !u!4 &1111984043

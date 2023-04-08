@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6446108574600362879}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.2046814, y: -3.0349839, z: 3.8896685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5793648f33c77a64092fffe3b2dac4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicSource: {fileID: 6446108574600362866}
   DrumsOnly: {fileID: 8300000, guid: d5e336bd785dd7f4f85573841c804a69, type: 3}
   DrumsAndSyntetizer: {fileID: 8300000, guid: 89bf534ade3b18b4ebeaa1891f55e931, type: 3}
   EveryInstrument: {fileID: 8300000, guid: a4dd6fda9def4e247803267bd662f228, type: 3}
+  MusicSource: {fileID: 6446108574600362866}
   EnemyEffectsSource: {fileID: 6446108574600362867}
 --- !u!82 &6446108574600362866
 AudioSource:
@@ -61,7 +61,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a4dd6fda9def4e247803267bd662f228, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.576
   m_Pitch: 1

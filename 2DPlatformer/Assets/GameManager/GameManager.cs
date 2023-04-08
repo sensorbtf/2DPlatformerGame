@@ -12,10 +12,29 @@ public class GameManager : MonoBehaviour
     private int totalEnemies; 
     private int totalNotes; 
     
-    void Awake()
+    void Start()
     {
         victoryPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        
+        var levelCompleted = PlayerPrefs.GetInt("CurrentLevel");
+        switch (levelCompleted)
+        {
+            case 1:
+                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
+                break;
+            
+            case 2:
+                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
+                break;
+            
+            case 3:
+                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
+                break;
+        }
         
         Time.timeScale = 1f;
         PlayerController.Instance.OnDeath += ShowGameOverPanel;
@@ -34,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     private void IsLevelCompleted()
     {            
-        PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
         if (totalEnemies == 0 && totalNotes == 0)
             ShowLevelCompletedPanel();
     }
@@ -48,6 +66,7 @@ public class GameManager : MonoBehaviour
     private void ShowLevelCompletedPanel()
     {
         victoryPanel.SetActive(true);
+        PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 0f;
     }
     
@@ -59,15 +78,8 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int nextSceneIndex = PlayerPrefs.GetInt("CurrentLevel") + 1;
-        
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
-        }
+
+        SceneManager.LoadScene(nextSceneIndex < SceneManager.sceneCountInBuildSettings ? nextSceneIndex : 0);
     }
     
     public void LoadMainMenuScene()

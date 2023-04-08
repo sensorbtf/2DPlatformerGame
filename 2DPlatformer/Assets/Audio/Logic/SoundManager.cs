@@ -8,10 +8,13 @@ public class SoundManager : MonoBehaviour
 	private List<AudioSource> audioSources;
 	private Dictionary<GameObject, AudioSource> walkingAudioSources;
 	
+	public AudioClip DrumsOnly;
+	public AudioClip DrumsAndSyntetizer;
+	public AudioClip EveryInstrument;
 	public AudioSource MusicSource;
-	
 	public AudioSource EnemyEffectsSource;
 
+	
 	public static SoundManager Instance { get; private set; }
 
     private void Awake()

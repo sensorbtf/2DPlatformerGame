@@ -220,9 +220,6 @@ MonoBehaviour:
   Syntetizer: {fileID: 1886066231}
   Drums: {fileID: 73643138}
   Player: {fileID: 175378147}
-  DrumsOnly: {fileID: 8300000, guid: d5e336bd785dd7f4f85573841c804a69, type: 3}
-  DrumsAndSyntetizer: {fileID: 8300000, guid: 89bf534ade3b18b4ebeaa1891f55e931, type: 3}
-  EveryInstrument: {fileID: 8300000, guid: a4dd6fda9def4e247803267bd662f228, type: 3}
 --- !u!1 &73643138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 502952217286413585, guid: 3e1283354958dda4ea1ee782f13753e8, type: 3}
@@ -4824,10 +4821,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6446108574600362866, guid: 946a30058099eb245a12ad12ff8a4517, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a4dd6fda9def4e247803267bd662f228, type: 3}
     - target: {fileID: 6446108574600362879, guid: 946a30058099eb245a12ad12ff8a4517, type: 3}
       propertyPath: m_Name
       value: SoundManager
