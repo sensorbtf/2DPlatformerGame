@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b3ad9d7a019a1488f837a06adcc81e, type: 3}
+  m_Name: Stronger_Enemy_Config_SO
+  m_EditorClassIdentifier: 
+  health: 4
+  damage: 2
+  pushBackForce: 3.5
+  timeToDestroyGO: 0.3
+  gettingDamageSound: {fileID: 8300000, guid: 4b7affcb44ccd824a83a4e87ea7fa778, type: 3}
+  pushBackSound: {fileID: 8300000, guid: 56809ea93ba26f84ab173be74f2aa741, type: 3}
+  runningSound: {fileID: 8300000, guid: 79fd09cd43e628841bd0a06477c1fb96, type: 3}
+  dyingSound: {fileID: 8300000, guid: 337e5262d715d594b90d47aefa080997, type: 3}

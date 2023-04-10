@@ -37,7 +37,6 @@ public class AttackingObject : MonoBehaviour
             foreach (Collider2D player in playerToDamage)
             {
                 SoundManager.Instance.PlayEffects(attackAudio);
-                
                 player.GetComponent<PlayerController>().TakeDamage(attackDamage);
             }
 
