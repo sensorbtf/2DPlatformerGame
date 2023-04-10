@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
             case 0:
                 StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
                 break;
-            case 1:
+            case 2:
                 Drums.SetActive(true);
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
@@ -32,8 +32,7 @@ public class MainMenu : MonoBehaviour
                 Goblin.SetActive(false);
                 canStart = true;
                 break;
-            
-            case 2:
+            case 3:
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
                 Syntetizer.SetActive(true);
@@ -44,7 +43,7 @@ public class MainMenu : MonoBehaviour
                 canStart = true;
                 break;
             
-            case 3:
+            case 4:
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
                 Syntetizer.SetActive(true);

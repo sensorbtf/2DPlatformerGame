@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
                 break;
             case 2:
                 newGo = Instantiate(Drums, screenCenter, Quaternion.identity);
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
                 newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
                 break;
             case 3:
