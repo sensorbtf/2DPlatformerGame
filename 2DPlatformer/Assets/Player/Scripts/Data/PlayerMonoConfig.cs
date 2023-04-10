@@ -15,6 +15,7 @@ public class PlayerMonoConfig : MonoBehaviour
     [SerializeField] private LayerMask whatAreEnemies;
     [SerializeField] private Collider2D platformCollider;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject blood;
 
     [Header("Player Components")]
     [SerializeField] private Rigidbody2D playerRigidBody;
@@ -34,4 +35,5 @@ public class PlayerMonoConfig : MonoBehaviour
     
     public Rigidbody2D PlayerRigidBody => playerRigidBody;
     public Collider2D PlayerCollider => playerCollider;
+    public GameObject Blood => blood;
 }

@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseConfig: {fileID: 11400000, guid: c1c05b3f1b7c34d4a821ca2031ca71ab, type: 2}
+  Blood: {fileID: 4888858878483264699, guid: 3033e76d9247a8f479e5cb21e47db206, type: 3}
   speed: 2
   startWaitTime: 1.5
   pointsOfPatrol:

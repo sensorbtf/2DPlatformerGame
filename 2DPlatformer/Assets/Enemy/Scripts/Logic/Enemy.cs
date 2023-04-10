@@ -5,7 +5,8 @@ using UnityEngine.Serialization;
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyConfig baseConfig;
-    
+    [SerializeField] private GameObject Blood;
+
     protected float PushBackForce => baseConfig.PushBackForce * 1000;
     protected int health;
     protected Animator anim;
@@ -39,8 +40,8 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
-        anim.SetTrigger("GettingDamage");
-        
+        Instantiate(Blood, transform.position, Quaternion.identity);
+
         if (health <= 0)
         {
             CameraShake.Instance.Shake(0.15f, 5f);
@@ -48,6 +49,7 @@ public abstract class Enemy : MonoBehaviour
         }
         else
         {
+            anim.SetTrigger("GettingDamage");
             SoundManager.Instance.PlayEffects(baseConfig.GettingDamageSound);
         }     
     }

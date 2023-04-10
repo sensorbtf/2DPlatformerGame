@@ -15,7 +15,7 @@ public class EnemyConfig : ScriptableObject
     [SerializeField] private AudioClip pushBackSound;
     [SerializeField] private AudioClip runningSound;
     [SerializeField] private AudioClip dyingSound;
-    
+
     public int Health => health;
     public int Damage => damage;
     public float PushBackForce => pushBackForce;

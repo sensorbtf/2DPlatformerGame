@@ -14,6 +14,7 @@ public class ShootingEnemy : Enemy
     {
         anim = GetComponent<Animator>();
         health = baseConfig.Health;
+        enabled = false;
     }
     
     private void Update()

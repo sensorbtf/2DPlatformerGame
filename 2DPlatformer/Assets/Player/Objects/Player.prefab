@@ -192,6 +192,7 @@ MonoBehaviour:
     m_Bits: 256
   platformCollider: {fileID: 0}
   animator: {fileID: 505883616}
+  blood: {fileID: 4888858878483264699, guid: 3033e76d9247a8f479e5cb21e47db206, type: 3}
   playerRigidBody: {fileID: 8036084630744685228}
   playerCollider: {fileID: 8036084630744685229}
 --- !u!114 &505883615

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool isSlidingWall;
     private bool isJumpingFromWall;
+    private bool isInJumpOffCoroutine = false;
     private bool isImmune = false;
 
     // Hero movement invocations
@@ -179,6 +180,7 @@ public class PlayerController : MonoBehaviour
             CameraShake.Instance.Shake(0.2f, 10f);
         }
 
+        Instantiate(PlayerMonoConfig.Blood, transform.position, Quaternion.identity);
         PlayerMonoConfig.Animator.SetTrigger("GettingDamage");
         OnHealthLose?.Invoke(damage);
         health -= damage;
@@ -269,15 +271,19 @@ public class PlayerController : MonoBehaviour
         PlayerMonoConfig.PlayerRigidBody.velocity = Vector2.up * PlayerStats.JumpForce;
         doJump = false;
     }
+
     
     private IEnumerator JumpOff()
     {
+        isInJumpOffCoroutine = true;
+
         SoundManager.Instance.PlayWalkingEffects(gameObject, PlayerStats.JumpedDownSound);
         
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, true);
         yield return new WaitForSeconds(PlayerStats.JumpingOffThreshold); 
         Physics2D.IgnoreCollision(PlayerMonoConfig.PlayerCollider, PlayerMonoConfig.PlatformCollider, false);
         doJumpDown = false;
+        isInJumpOffCoroutine = false;
     }
     
     private void FlipHeroSprite()
@@ -305,10 +311,12 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        bool isTouchingCeiling = Physics2D.OverlapCircle(PlayerMonoConfig.CeilingChecker.position,
+        bool isTouchingTopPlatform= Physics2D.OverlapCircle(PlayerMonoConfig.CeilingChecker.position,
                 PlayerMonoConfig.RadiusChecker, PlayerMonoConfig.WhatIsPlatform);
+        bool isTouchingDownPlatform= Physics2D.OverlapCircle(PlayerMonoConfig.PlatformTouchingValidator.position,
+            PlayerMonoConfig.RadiusChecker, PlayerMonoConfig.WhatIsPlatform);
         
-        if (isGrounded && isTouchingCeiling)
+        if (isTouchingDownPlatform && isTouchingTopPlatform && !isInJumpOffCoroutine)
         {
             StartCoroutine(JumpOff());
         }

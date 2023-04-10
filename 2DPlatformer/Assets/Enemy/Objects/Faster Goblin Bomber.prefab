@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseConfig: {fileID: 11400000, guid: 8ffcf5573e5ac4c4ca37ca435829a1d7, type: 2}
+  Blood: {fileID: 4888858878483264699, guid: 3033e76d9247a8f479e5cb21e47db206, type: 3}
   projectile: {fileID: 4388832282092376842, guid: eccc853a637ec1e4b902993503c10de2, type: 3}
   timeBetweenShots: 1
   shotPoint: {fileID: 837914420}

@@ -2126,11 +2126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Name
-      value: Coin
-      objectReference: {fileID: 0}
-    - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
-      propertyPath: m_Layer
-      value: 0
+      value: Notes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
@@ -2451,7 +2447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Notes 2
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Layer
@@ -3465,7 +3461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Notes 3
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Layer
@@ -3864,7 +3860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Notes 1
       objectReference: {fileID: 0}
     - target: {fileID: 1652246935848856309, guid: 336c22ee261deb8418a6364dfa3f7e89, type: 3}
       propertyPath: m_Layer
@@ -4090,7 +4086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105191182}
   m_Layer: 0
-  m_Name: Coins
+  m_Name: Notes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
