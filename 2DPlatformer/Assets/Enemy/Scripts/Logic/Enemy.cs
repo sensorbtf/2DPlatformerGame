@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         health = baseConfig.Health;
+        enabled = false;
     }
     
     private void OnBecameVisible()

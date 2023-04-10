@@ -27,6 +27,7 @@ public class PatrolEnemy : Enemy
         patrolWaitTime = startWaitTime;
         health = baseConfig.Health;
         anim = GetComponent<Animator>();
+        enabled = false;
     }
 
     private void Update()

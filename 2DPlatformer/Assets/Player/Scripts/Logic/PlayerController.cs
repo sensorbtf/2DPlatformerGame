@@ -57,14 +57,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDashing)
-            return;
-
         if (health <= 0)
         {
             SoundManager.Instance.PlayMusic(PlayerStats.DeathSound);
             StartCoroutine(Die());
         }
+        
+        if (isDashing && health <= 0)
+            return;
         
         input = Input.GetAxisRaw("Horizontal");
         PlayerPositionChecker();
@@ -221,8 +221,9 @@ public class PlayerController : MonoBehaviour
         isImmune = true;
         StartIgnoringCollisions();
         PlayerMonoConfig.Animator.SetBool("isInGodMode", true);
-        yield return new WaitForSeconds(PlayerStats.GodModeDuration);
+        yield return new WaitForSeconds(PlayerStats.GodModeDuration - 0.1f);
         PlayerMonoConfig.Animator.SetBool("isInGodMode", false);
+        yield return new WaitForSeconds(0.1f);
         StopIgnoringCollisions();
         isImmune = false;
         
