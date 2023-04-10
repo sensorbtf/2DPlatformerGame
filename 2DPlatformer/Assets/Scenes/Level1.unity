@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 382603090}
   - component: {fileID: 382603091}
   - component: {fileID: 382603092}
+  - component: {fileID: 382603093}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -710,6 +711,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 0
+--- !u!114 &382603093
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382603088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 5
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &467326227 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 467326227, guid: dbf49d30c38e0ca4190a04a7413f8d1d, type: 3}
@@ -1995,7 +2013,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &949896735
 GameObject:
@@ -2378,7 +2396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1350165358
 PrefabInstance:
@@ -3678,7 +3696,7 @@ Transform:
   - {fileID: 949896736}
   - {fileID: 1867055439}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1607403939
 AudioListener:
@@ -3869,6 +3887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1867055439}
   - component: {fileID: 1867055440}
+  - component: {fileID: 1867055441}
   m_Layer: 0
   m_Name: Cinemachine1
   m_TagString: Untagged
@@ -3930,6 +3949,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 382603089}
+--- !u!114 &1867055441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867055437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784c390dcfbac7348a96f3945749e3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1940282590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3245668995661878317, guid: ffc0d3ef52a2a3946a52d2e82687c33d, type: 3}

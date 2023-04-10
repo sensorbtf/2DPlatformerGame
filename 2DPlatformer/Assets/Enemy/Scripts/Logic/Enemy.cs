@@ -42,6 +42,7 @@ public abstract class Enemy : MonoBehaviour
         
         if (health <= 0)
         {
+            CameraShake.Instance.Shake(0.15f, 5f);
             StartCoroutine(Die());
         }
         else
@@ -59,7 +60,6 @@ public abstract class Enemy : MonoBehaviour
     private IEnumerator Die()
     {
         SoundManager.Instance.PlayEffects(baseConfig.DyingSound);
-        
         GetComponent<Collider2D>().enabled = false;
         anim.SetTrigger("Dying");
         yield return new WaitForSeconds(baseConfig.TimeToDestroyGO);

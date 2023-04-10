@@ -172,9 +172,12 @@ public class PlayerController : MonoBehaviour
             return;
 
         SoundManager.Instance.PlayEffects(PlayerStats.GetDamagedSound);
-        
+
         if (Health > 0)
+        {
             StartCoroutine(TemporaryGodmode());
+            CameraShake.Instance.Shake(0.2f, 10f);
+        }
 
         PlayerMonoConfig.Animator.SetTrigger("GettingDamage");
         OnHealthLose?.Invoke(damage);
@@ -325,6 +328,8 @@ public class PlayerController : MonoBehaviour
     
         foreach (Collider2D enemies in enemiesToDamage)
             enemies.GetComponent<Enemy>().TakeDamage(PlayerStats.Damage);
+        
+        CameraShake.Instance.Shake(0.1f, 3f);
     }
 
     private void StartIgnoringCollisions()
