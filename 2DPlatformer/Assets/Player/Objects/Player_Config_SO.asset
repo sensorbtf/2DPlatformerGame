@@ -19,7 +19,7 @@ MonoBehaviour:
   yWallForce: 20
   wallJumpTime: 0.1
   jumpingOffThreshold: 0.2
-  dashingPower: 100
+  dashingPower: 150
   dashingTime: 0.2
   dashingCooldown: 1
   health: 3

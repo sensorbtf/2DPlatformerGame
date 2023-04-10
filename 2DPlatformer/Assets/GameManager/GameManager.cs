@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
                 break;
-            
             case 3:
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
@@ -55,9 +54,7 @@ public class GameManager : MonoBehaviour
         totalNotes = GameObject.FindGameObjectsWithTag("Note").Length;
 
         if (enemiesLeftText.text != totalEnemies.ToString() || leftMusicNodesText.text != totalNotes.ToString())
-        {
             IsLevelCompleted();
-        }
         
         enemiesLeftText.text = totalEnemies.ToString();
         leftMusicNodesText.text = totalNotes.ToString();

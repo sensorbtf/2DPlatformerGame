@@ -23,6 +23,13 @@ public class MainMenu : MonoBehaviour
             case 0:
                 StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
                 break;
+            case 1:
+                SoundManager.Instance.StopMusic();
+                Guitar.SetActive(false);
+                Syntetizer.SetActive(false);
+                Goblin.SetActive(false);
+                canStart = true;
+                break;
             case 2:
                 Drums.SetActive(true);
                 SoundManager.Instance.StopMusic();
