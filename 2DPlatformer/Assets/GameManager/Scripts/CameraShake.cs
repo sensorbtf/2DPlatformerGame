@@ -10,7 +10,7 @@ public class CameraShake : MonoBehaviour
     private float currentTime;
     private void Awake()
     {
-        vmCamEffect = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();;
+        vmCamEffect = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         Instance = this;
     }
 
