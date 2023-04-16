@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseConfig: {fileID: 11400000, guid: c1c05b3f1b7c34d4a821ca2031ca71ab, type: 2}
+  Blood: {fileID: 4888858878483264699, guid: 7feb2efa8a4f06c488f153b0b84f9097, type: 3}
 --- !u!58 &6409009965797587294
 CircleCollider2D:
   m_ObjectHideFlags: 0
