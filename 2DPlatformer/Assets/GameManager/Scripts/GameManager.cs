@@ -28,17 +28,14 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 SoundManager.Instance.StopMusic();
-                break;
-            case 2:
-                SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
                 break;
-            case 3:
+            case 2:
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
                 break;
             
-            case 4:
+            case 3:
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
                 break;
@@ -82,21 +79,17 @@ public class GameManager : MonoBehaviour
         switch (levelCompleted)
         {
             case 1:
-                victoryPanel.SetActive(true);
-                Time.timeScale = 0f;
-                break;
-            case 2:
                 newGo = Instantiate(Drums, screenCenter, Quaternion.identity);
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsOnly);
                 newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
                 break;
-            case 3:
+            case 2:
                 newGo = Instantiate(Syntetizer, screenCenter, Quaternion.identity);
                 newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
                 SoundManager.Instance.StopMusic();
                 SoundManager.Instance.PlayMusic(SoundManager.Instance.DrumsAndSyntetizer);
                 break;
-            case 4:
+            case 3:
                 newGo = Instantiate(Guitar, screenCenter, Quaternion.identity);
                 newGo.transform.SetParent(GameObject.Find("InGameUi").transform);
                 SoundManager.Instance.StopMusic();
