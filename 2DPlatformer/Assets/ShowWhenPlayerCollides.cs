@@ -1,36 +1,47 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowWhenPlayerCollides : MonoBehaviour
 {
-    public SpriteRenderer sprite;
-    public float waitTime = 0.01f;
+    public static ShowWhenPlayerCollides Instance;
+    
+    public GameObject[] sprites;
+    public float waitTime = 0.2f;
+    public bool hasBeenInvoked;
+    
+    public event Action OnLevelCompletion;
+
     private void Start()
     {
-        sprite.enabled = false;
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].SetActive(false);
+        }
+        Instance = this;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(waiter());
-
+            StartCoroutine(ShowNotes());
+            
+            if (!hasBeenInvoked)
+            {
+                hasBeenInvoked = true;            
+                OnLevelCompletion?.Invoke();
+            }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    IEnumerator ShowNotes()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            sprite.enabled = false;
-        }
-    }
-
-    IEnumerator waiter()
-    {
+        sprites[0].SetActive(true); 
         yield return new WaitForSeconds(waitTime);
-        sprite.enabled = true;
+        sprites[1].SetActive(true); 
+        yield return new WaitForSeconds(waitTime);
+        sprites[2].SetActive(true); 
+        yield return new WaitForSeconds(waitTime);
     }
 }

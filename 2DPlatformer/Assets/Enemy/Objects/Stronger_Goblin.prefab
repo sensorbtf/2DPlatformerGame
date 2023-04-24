@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632753836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1597517, y: -0.08, z: 0}
+  m_LocalPosition: {x: 3.04, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901527523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.349751, y: -0.1, z: 0}
+  m_LocalPosition: {x: -3.66, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -243,10 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20b9e554923fee48a1a8a7accb338bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseConfig: {fileID: 11400000, guid: c1c05b3f1b7c34d4a821ca2031ca71ab, type: 2}
+  baseConfig: {fileID: 11400000, guid: 8ffcf5573e5ac4c4ca37ca435829a1d7, type: 2}
   Blood: {fileID: 4888858878483264699, guid: 3033e76d9247a8f479e5cb21e47db206, type: 3}
-  speed: 2
-  startWaitTime: 1.5
+  speed: 1
+  startWaitTime: 0.1
   pointsOfPatrol:
   - {fileID: 632753837}
   - {fileID: 901527524}

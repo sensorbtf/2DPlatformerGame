@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool doJumpFromWall = false;
     private bool doDash = false;
     private bool canDash = true;
+    private bool revokePlayerControl = false;
 
     private float input;
     private float nextAttackCooldown;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Die());
         }
         
-        if (isDashing && health <= 0)
+        if (isDashing || health <= 0 || revokePlayerControl)
             return;
         
         input = Input.GetAxisRaw("Horizontal");
@@ -348,5 +349,13 @@ public class PlayerController : MonoBehaviour
     private void StopIgnoringCollisions()
     {
         Physics2D.IgnoreLayerCollision(playerLayerIndex, enemyLayerIndex, false);
+    }
+    
+    public void RevokePlayerControl()
+    {
+        revokePlayerControl = true;
+        input = 0;
+        PlayerMonoConfig.Animator.SetBool("isRunning", false);
+        //PlayerMonoConfig.PlayerRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }

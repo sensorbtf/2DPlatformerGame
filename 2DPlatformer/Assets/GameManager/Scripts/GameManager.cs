@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         
         Time.timeScale = 1f;
         PlayerController.Instance.OnDeath += ShowGameOverPanel;
+        ShowWhenPlayerCollides.Instance.OnLevelCompletion += EndGame;
     }
     
     void Update()
@@ -62,11 +63,23 @@ public class GameManager : MonoBehaviour
         if (totalEnemies == 0 && totalNotes == 0)
             StartCoroutine(ShowLevelCompletedPanel());
     }
+    
+    private void EndGame()
+    {
+        PlayerController.Instance.RevokePlayerControl(); 
+        StartCoroutine(ActivateEndingScreen(5));
+    }
 
     private void ShowGameOverPanel()
     {
         gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    private IEnumerator ActivateEndingScreen(int p_seconds)
+    {
+        yield return new WaitForSeconds(p_seconds);
+        StartCoroutine(ShowLevelCompletedPanel());
     }
 
     private IEnumerator ShowLevelCompletedPanel()
