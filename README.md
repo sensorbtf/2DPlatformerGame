@@ -1,19 +1,27 @@
 # 2DPlatformerGame
 
-# How was it done:
-# Article about how are video games done from perspective of game-developer:
-# https://ittechblog.pl/2023/03/15/jak-powstaja-gry-wideo
-# How to set Unity and Repo on Github
-# https://ittechblog.pl/2023/03/19/unity-git-repozytorium
-# Entry Game Design
-# https://ittechblog.pl/2023/04/10/platformowa-gra-2d-w-unity
-# Code architecture
-# https://ittechblog.pl/2023/04/14/architektura-kodu-w-grze-platformowej
-# Environment and Player setting
-# https://ittechblog.pl/2023/04/18/platformowka-2d-w-unity-srodowisko-gracz
-# Programming player from scratch
-# https://ittechblog.pl/2023/04/22/platformowka-2d-w-unity-postac
+## Demo/Screenshots
+Gif, screenshots or link to demo.
 
-# Used asset: https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack
 
-# TO BE DONE: Enemies and fight system, managers for level and sound managing
+## How was it done
+
+| Description     | Link                |
+| :------- | :------------------------- |
+| Article about how are video games done from perspective of game-developer | https://ittechblog.pl/2023/03/15/jak-powstaja-gry-wideo |
+| How to set Unity and Repo on Github | https://ittechblog.pl/2023/03/19/unity-git-repozytorium |
+| Entry Game Design | https://ittechblog.pl/2023/04/10/platformowa-gra-2d-w-unity |
+| Code architecture |  https://ittechblog.pl/2023/04/14/architektura-kodu-w-grze-platformowej  |
+| Environment and Player setting | https://ittechblog.pl/2023/04/18/platformowka-2d-w-unity-srodowisko-gracz |
+| Programming player from scratch | https://ittechblog.pl/2023/04/22/platformowka-2d-w-unity-postac |
+
+## Used assets: 
+- https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack
+
+## TO BE DONE: 
+- Enemies and fight system, managers for level and sound managing
+
+## Authors
+- [@sensorbtf](https://github.com/sensorbtf)
+- [@JarekDudzik](https://github.com/JarekDudzik)
+- [@aniahuber](https://github.com/aniahuber)
