@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b3ad9d7a019a1488f837a06adcc81e, type: 3}
   m_Name: Stronger_Enemy_Config_SO
   m_EditorClassIdentifier: 
-  health: 4
-  damage: 2
+  health: 5
+  damage: 1
   pushBackForce: 3.5
   timeToDestroyGO: 0.3
   gettingDamageSound: {fileID: 8300000, guid: 4b7affcb44ccd824a83a4e87ea7fa778, type: 3}

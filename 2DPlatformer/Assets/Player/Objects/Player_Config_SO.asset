@@ -22,10 +22,10 @@ MonoBehaviour:
   dashingPower: 150
   dashingTime: 0.2
   dashingCooldown: 1
-  health: 3
+  health: 5
   damage: 2
   timeBetweenAttacks: 0.4
-  attackRange: 0.5
+  attackRange: 0.4
   dyingDuration: 0.8
   godModeDuration: 1
   RunningSound: {fileID: 8300000, guid: 2297347d09698b848ad3da652b4e9944, type: 3}
