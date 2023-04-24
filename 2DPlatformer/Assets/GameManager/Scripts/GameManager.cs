@@ -43,7 +43,11 @@ public class GameManager : MonoBehaviour
         
         Time.timeScale = 1f;
         PlayerController.Instance.OnDeath += ShowGameOverPanel;
-        ShowWhenPlayerCollides.Instance.OnLevelCompletion += EndGame;
+        
+        if (PlayerPrefs.GetInt("CurrentLevel") == 4)
+        {
+            ShowWhenPlayerCollides.Instance.OnLevelCompletion += EndGame;
+        }
     }
     
     void Update()

@@ -9,6 +9,7 @@ public class ShootingEnemy : Enemy
     [SerializeField] private AudioClip attackClip;
 
     private float nextShotTime;
+    private float randomTimeBetweenShots;
 
     private void Start()
     {
@@ -23,7 +24,8 @@ public class ShootingEnemy : Enemy
             return;
 
         anim.SetTrigger("Attacking");
-        nextShotTime = Time.time + timeBetweenShots;
+        randomTimeBetweenShots = Random.Range(timeBetweenShots - timeBetweenShots * Random.Range(0.1f, 0.9f), timeBetweenShots);
+        nextShotTime = Time.time + randomTimeBetweenShots;
     }
     
     private void OnBecameVisible()

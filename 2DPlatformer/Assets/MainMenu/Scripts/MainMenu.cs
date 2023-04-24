@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject Syntetizer;
     [SerializeField] private GameObject Drums;
     [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject PlayerAfterCompletion;
 
     private bool canStart = false;
     private bool isFacingRight = false;
@@ -21,6 +22,7 @@ public class MainMenu : MonoBehaviour
         switch (levelCompleted)
         {
             case 0:
+                PlayerAfterCompletion.SetActive(false);
                 StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
                 break;
             case 1:
@@ -30,6 +32,7 @@ public class MainMenu : MonoBehaviour
                 Guitar.SetActive(false);
                 Syntetizer.SetActive(false);
                 Goblin.SetActive(false);
+                PlayerAfterCompletion.SetActive(false);
                 canStart = true;
                 break;
             case 2:
@@ -40,6 +43,7 @@ public class MainMenu : MonoBehaviour
                 Drums.SetActive(true);
                 Guitar.SetActive(false);
                 Goblin.SetActive(false);
+                PlayerAfterCompletion.SetActive(false);
                 canStart = true;
                 break;
             case 3:
@@ -49,10 +53,19 @@ public class MainMenu : MonoBehaviour
                 Drums.SetActive(true);
                 Guitar.SetActive(true);
                 Goblin.SetActive(false);
+                PlayerAfterCompletion.SetActive(false);
                 canStart = true;
                 break;
-            
-            //TODO Case4 after completion of all levels 
+            case 4:
+                SoundManager.Instance.StopMusic();
+                SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
+                Syntetizer.SetActive(true);
+                Drums.SetActive(true);
+                Guitar.SetActive(true);
+                PlayerAfterCompletion.SetActive(true);
+                Goblin.SetActive(false);
+                canStart = true;
+                break;
         }
     }
     
@@ -78,6 +91,7 @@ public class MainMenu : MonoBehaviour
             Drums.SetActive(true);
             Guitar.SetActive(true);
             Goblin.SetActive(true);
+            PlayerAfterCompletion.SetActive(false);
             canStart = false;
             SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
             StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
