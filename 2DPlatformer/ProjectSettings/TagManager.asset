@@ -8,6 +8,7 @@ TagManager:
   - Note
   - StopSpikes
   - WaitSpikes
+  - DeadlySpikesWall
   layers:
   - Default
   - TransparentFX
