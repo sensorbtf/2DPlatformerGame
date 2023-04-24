@@ -17,6 +17,14 @@ Gif, screenshots or link to demo.
 
 ## Used assets: 
 - https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack
+- https://edermunizz.itch.io/free-pixel-art-forest
+- https://edermunizz.itch.io/free-pixel-art-hill
+- https://free-game-assets.itch.io/free-swamp-2d-tileset-pixel-art
+- https://craftpix.net/freebies/free-mountain-backgrounds-pixel-art/
+- https://craftpix.net/freebies/free-sky-with-clouds-background-pixel-art-set/
+- https://craftpix.net/freebies/free-clouds-pixel-art-asset-pack/
+- https://elthen.itch.io/pixel-art-destructible-objects
+- https://www.youtube.com/watch?v=jpFomK-xgxk
 
 ## TO BE DONE: 
 - Enemies and fight system, managers for level and sound managing
