@@ -44,15 +44,18 @@ public class CheatCommands : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (DeadlySpikesWall != null)
         {
-            if (DeadlySpikesWall.active == true)
+            if (Input.GetKeyDown(KeyCode.F3))
             {
-                DeadlySpikesWall.active = false;
-            }
-            else
-            {
-                DeadlySpikesWall.active = true;
+                if (DeadlySpikesWall.active == true)
+                {
+                    DeadlySpikesWall.active = false;
+                }
+                else
+                {
+                    DeadlySpikesWall.active = true;
+                }
             }
         }
     }
