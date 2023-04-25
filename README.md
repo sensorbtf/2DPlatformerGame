@@ -1,7 +1,22 @@
 # 2DPlatformerGame
 
-## Demo/Screenshots
-Gif, screenshots or link to demo.
+## Game Demo
+
+<h2 align="center">
+  Save musical instruments
+</h2>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/100610252/234251861-37939cb3-f26f-4779-aa03-16ecd8c63438.gif" alt="animated" />
+</p>
+<h2 align="center">
+  Play all levels
+</h2>
+
+|   |   |
+|---|---|
+| ![](https://user-images.githubusercontent.com/100610252/234253870-5b76f2d2-ee86-41df-8998-eac024e9b009.gif)  |  ![](https://user-images.githubusercontent.com/100610252/234256927-d27e3022-2b4d-40af-a36b-fc860d6cebc6.gif) |
+![](https://user-images.githubusercontent.com/100610252/234259221-f7d1dbf5-5a25-4061-aa7f-acd97e7c6837.gif)  |  ![](https://user-images.githubusercontent.com/100610252/234252482-ac2baf45-5395-4e05-860c-54880e664cf0.gif) |
+
 
 
 ## How was it done
