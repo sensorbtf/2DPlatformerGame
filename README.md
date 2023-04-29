@@ -25,10 +25,14 @@
 | :------- | :------------------------- |
 | Article about how are video games done from perspective of game-developer | https://ittechblog.pl/2023/03/15/jak-powstaja-gry-wideo |
 | How to set Unity and Repo on Github | https://ittechblog.pl/2023/03/19/unity-git-repozytorium |
+| Getting to know Unity | https://ittechblog.pl/2023/03/24/poradnik-unity-silnik-gra |
 | Entry Game Design | https://ittechblog.pl/2023/04/10/platformowa-gra-2d-w-unity |
 | Code architecture |  https://ittechblog.pl/2023/04/14/architektura-kodu-w-grze-platformowej  |
 | Environment and Player setting | https://ittechblog.pl/2023/04/18/platformowka-2d-w-unity-srodowisko-gracz |
 | Programming player from scratch | https://ittechblog.pl/2023/04/22/platformowka-2d-w-unity-postac |
+| Enemies and fight system | https://ittechblog.pl/2023/04/24/gra-platformowa-2d-przeciwnicy-walka |
+| Adding Managers and effects | https://ittechblog.pl/2023/04/26/unity-gra-platformowa-ui-efekty |
+
 
 ## Used assets: 
 - https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack
