@@ -17,7 +17,7 @@ public class CheatCommands : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
@@ -32,7 +32,7 @@ public class CheatCommands : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (playerObject.CompareTag("Player"))
             {
@@ -46,7 +46,7 @@ public class CheatCommands : MonoBehaviour
 
         if (DeadlySpikesWall != null)
         {
-            if (Input.GetKeyDown(KeyCode.F3))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (DeadlySpikesWall.active == true)
                 {

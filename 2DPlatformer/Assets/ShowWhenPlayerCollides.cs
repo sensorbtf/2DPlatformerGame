@@ -12,7 +12,7 @@ public class ShowWhenPlayerCollides : MonoBehaviour
     
     public event Action OnLevelCompletion;
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < sprites.Length; i++)
         {

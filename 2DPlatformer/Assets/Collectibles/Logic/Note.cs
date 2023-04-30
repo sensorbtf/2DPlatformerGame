@@ -9,6 +9,7 @@ public class Note : MonoBehaviour
             return;
         
         SoundManager.Instance.PlayEffects(collectingCoinAudio);
+        PlayerController.Instance.ReplenishHp();
         Destroy(gameObject);
     }
 }

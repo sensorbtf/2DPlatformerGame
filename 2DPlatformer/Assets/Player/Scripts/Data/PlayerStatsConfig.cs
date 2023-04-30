@@ -17,6 +17,7 @@ public class PlayerStatsConfig : ScriptableObject
     
     [Header("Player combat stats")]
     [SerializeField] private int health = 3;
+    [SerializeField] private int notesNeedToHealthRegen = 3;
     [SerializeField] private int damage = 1;
     [SerializeField] private float timeBetweenAttacks = 0.4f; 
     [SerializeField] private float attackRange = 0.5f;
@@ -44,6 +45,7 @@ public class PlayerStatsConfig : ScriptableObject
     public float DashingCooldown => dashingCooldown;
     
     public int Health => health;
+    public int NotesNeedToHealthRegen => notesNeedToHealthRegen;
     public int Damage => damage;
     public float TimeBetweenAttacks => timeBetweenAttacks; 
     public float AttackRange => attackRange;

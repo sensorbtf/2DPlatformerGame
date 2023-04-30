@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private int playerLayerIndex;
     private int enemyLayerIndex;
+    private int collectedNotes = 0;
 
     public int Health => health;
     public bool IsImmune => isImmune;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D RB2D => PlayerMonoConfig.PlayerRigidBody;
 
     public event Action<int> OnHealthLose;
+    public event Action OnHealthGain;
     public event Action OnDeath;
 
     private void Awake()
@@ -175,7 +177,7 @@ public class PlayerController : MonoBehaviour
 
         SoundManager.Instance.PlayEffects(PlayerStats.GetDamagedSound);
 
-        if (Health > 0)
+        if (health > 0)
         {
             StartCoroutine(TemporaryGodmode());
             CameraShake.Instance.Shake(0.2f, 10f);
@@ -186,7 +188,19 @@ public class PlayerController : MonoBehaviour
         OnHealthLose?.Invoke(damage);
         health -= damage;
     }
-    
+
+    public void ReplenishHp()
+    {
+        collectedNotes++;
+        if (health > 0 && health != PlayerStats.Health &&  collectedNotes % PlayerStats.NotesNeedToHealthRegen == 0)
+        {
+        Debug.Log("rep" + health);
+            health++;
+        Debug.Log("rep2" + health);
+            OnHealthGain();
+        }
+    }
+
     private void Dash()
     {
         StartCoroutine(PlayerMonoConfig.WallTouchingValidator.position.x >

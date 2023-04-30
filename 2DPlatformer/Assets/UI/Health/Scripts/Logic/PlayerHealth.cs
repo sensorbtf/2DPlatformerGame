@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private RectTransform heartsRect;
     
     private List<Image> fullHearts;
-    private int currentHealth = 0;
+    private int currentUIHealth = 0;
     
     void Start()
     {
@@ -31,16 +32,26 @@ public class PlayerHealth : MonoBehaviour
         heartsRect.sizeDelta = new Vector2(neededHearthsRectSize, heartRectTransform.rect.height);
 
         PlayerController.Instance.OnHealthLose += LoseHeart;
+        PlayerController.Instance.OnHealthGain += ReplenishHealth;
+    }
+
+    private void ReplenishHealth()
+    {
+        if (currentUIHealth != 0)
+        {
+            currentUIHealth--;
+            fullHearts[currentUIHealth].sprite = fullHeart;
+        }
     }
 
     private void LoseHeart(int p_heartLost)
     {
         for (int i = 0; i < p_heartLost; i++)
         {
-            if (fullHearts.Count > currentHealth)
+            if (fullHearts.Count > currentUIHealth)
             {
-                fullHearts[currentHealth].sprite = brokenHeart;
-                currentHealth++;  
+                fullHearts[currentUIHealth].sprite = brokenHeart;
+                currentUIHealth++;  
             }
         }
     }
