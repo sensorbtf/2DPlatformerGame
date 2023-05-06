@@ -7,7 +7,15 @@ public class LevelSelector : MonoBehaviour
     public int level;
     public void PlayLevel()
     {
-        SceneManager.LoadScene("Level" + level.ToString());
+        if (level.Equals(0))
+        {
+            SceneManager.LoadScene("TutorialLevel");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level" + level.ToString());
+        }
+      
     }
 
     private void Start()
