@@ -88,14 +88,7 @@ public class MainMenu : MonoBehaviour
         if (canStart)
         {
             PlayerPrefs.DeleteAll();
-            Syntetizer.SetActive(true);
-            Drums.SetActive(true);
-            Guitar.SetActive(true);
-            Goblin.SetActive(true);
-            PlayerAfterCompletion.SetActive(false);
-            canStart = false;
-            SoundManager.Instance.PlayMusic(SoundManager.Instance.EveryInstrument);
-            StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
+            SceneManager.LoadScene(0);
         }
     }
 
