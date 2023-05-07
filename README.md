@@ -8,9 +8,9 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/100610252/234251861-37939cb3-f26f-4779-aa03-16ecd8c63438.gif" alt="animated" />
 </p>
-<h2 align="center">
-  Play all levels in browser: https://aniahuber.itch.io/just-another-platformer. Password (ATH)
-</h2>
+<h3 align="center">
+  Play all levels in browser: https://aniahuber.itch.io/just-another-platformer. Password: ATH
+</h3>
 
 |   |   |
 |---|---|
