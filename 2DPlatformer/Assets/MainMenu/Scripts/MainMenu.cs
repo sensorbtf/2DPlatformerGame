@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 
     private bool canStart = false;
     private bool isFacingRight = false;
-    
+
     private void Start()
     {
         var levelCompleted = PlayerPrefs.GetInt("CurrentLevel");
@@ -68,12 +68,13 @@ public class MainMenu : MonoBehaviour
                 break;
         }
     }
-    
+
     public void PlayGame()
     {
         if (canStart)
         {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel")+1);
+            if ((PlayerPrefs.GetInt("CurrentLevel") + 1) < 5)
+                SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel") + 1);
         }
     }
 
@@ -81,7 +82,7 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
     public void DeletePrefs()
     {
         if (canStart)
@@ -97,18 +98,19 @@ public class MainMenu : MonoBehaviour
             StartCoroutine(MoveToPosition(Goblin.transform, Guitar, 2));
         }
     }
-    
-    private IEnumerator MoveToPosition(Transform p_transform, GameObject p_gO, float p_timeToMove) {
+
+    private IEnumerator MoveToPosition(Transform p_transform, GameObject p_gO, float p_timeToMove)
+    {
         Vector3 currentPos = p_transform.position;
         float t = 0f;
-        while (t < 1) 
+        while (t < 1)
         {
             t += Time.deltaTime / p_timeToMove;
             p_transform.position = Vector3.Lerp(currentPos, p_gO.transform.position, t);
             yield return null;
         }
         p_gO.SetActive(false);
-        
+
         if (Syntetizer.activeSelf)
         {
             StartCoroutine(MoveToPosition(Goblin.transform, Syntetizer, 3));
@@ -118,15 +120,15 @@ public class MainMenu : MonoBehaviour
         {
             StartCoroutine(MoveToPosition(Goblin.transform, Drums, 2));
         }
-        
-        if (!canStart && Goblin.activeSelf && !Syntetizer.activeSelf && 
+
+        if (!canStart && Goblin.activeSelf && !Syntetizer.activeSelf &&
             !Guitar.activeSelf && !Drums.activeSelf && Sign.activeSelf)
         {
             FlipEnemy();
             SoundManager.Instance.StopMusic();
             StartCoroutine(MoveToPosition(Goblin.transform, Sign, 3));
         }
-        
+
         if (!Sign.activeSelf)
         {
             StartCoroutine(MoveToPosition(Goblin.transform, RunAwayGO, 2));
@@ -139,7 +141,7 @@ public class MainMenu : MonoBehaviour
             StartCoroutine(MoveToPosition(Player.transform, RunAwayGO, 3));
         }
     }
-    
+
     private void FlipEnemy()
     {
         var transform1 = Goblin.transform;
