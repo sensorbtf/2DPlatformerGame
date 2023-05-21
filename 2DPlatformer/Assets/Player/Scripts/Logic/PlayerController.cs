@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private bool isSlidingWall;
     private bool isJumpingFromWall;
     private bool isInJumpOffCoroutine = false;
-    private bool isImmune = false;
 
     // Hero movement invocations
     private bool doJump = false;
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private int collectedNotes = 0;
 
     public int Health => health;
-    public bool IsImmune => isImmune;
+    public bool IsImmune { get; set; } = false;
 
     public Rigidbody2D RB2D => PlayerMonoConfig.PlayerRigidBody;
 
@@ -128,7 +127,7 @@ public class PlayerController : MonoBehaviour
         
         if (Time.time > nextAttackCooldown)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall && !isImmune)
+            if (Input.GetKeyDown(KeyCode.Space) && !isSlidingWall && !IsImmune)
             {
                 nextAttackCooldown = Time.time + PlayerStats.TimeBetweenAttacks;
                 SoundManager.Instance.PlayEffects(PlayerStats.AttackSound);
@@ -172,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isImmune)
+        if (IsImmune)
             return;
 
         SoundManager.Instance.PlayEffects(PlayerStats.GetDamagedSound);
@@ -235,21 +234,21 @@ public class PlayerController : MonoBehaviour
     {
         SoundManager.Instance.MusicSource.pitch = 1.5f;
 
-        isImmune = true;
+        IsImmune = true;
         StartIgnoringCollisions();
         PlayerMonoConfig.Animator.SetBool("isInGodMode", true);
         yield return new WaitForSeconds(PlayerStats.GodModeDuration - 0.1f);
         PlayerMonoConfig.Animator.SetBool("isInGodMode", false);
         yield return new WaitForSeconds(0.1f);
         StopIgnoringCollisions();
-        isImmune = false;
+        IsImmune = false;
         
         SoundManager.Instance.MusicSource.pitch = 1f;
     }
 
     private IEnumerator Die()
     {
-        isImmune = false;
+        IsImmune = true;
         
         PlayerMonoConfig.PlayerRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
         PlayerMonoConfig.Animator.SetTrigger("Dying");

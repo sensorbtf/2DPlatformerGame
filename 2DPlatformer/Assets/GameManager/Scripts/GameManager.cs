@@ -45,9 +45,7 @@ public class GameManager : MonoBehaviour
         PlayerController.Instance.OnDeath += ShowGameOverPanel;
         
         if (PlayerPrefs.GetInt("CurrentLevel") == 4)
-        {
             ShowWhenPlayerCollides.Instance.OnLevelCompletion += EndGame;
-        }
     }
     
     void Update()
@@ -90,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
 
+        PlayerController.Instance.IsImmune = true;
         var levelCompleted = PlayerPrefs.GetInt("CurrentLevel");
         GameObject newGo = null;
         
@@ -117,7 +116,7 @@ public class GameManager : MonoBehaviour
         if (newGo != null)
         {
             newGo.SetActive(true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             Destroy(newGo);
         }
 
